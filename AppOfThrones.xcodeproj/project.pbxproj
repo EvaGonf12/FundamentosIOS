@@ -23,6 +23,7 @@
 		589E9B0D23FB4B9C00952416 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E9B0C23FB4B9C00952416 /* Cast.swift */; };
 		589E9B0F23FB513500952416 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E9B0E23FB513500952416 /* DataController.swift */; };
 		589E9B1123FB54E900952416 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E9B1023FB54E900952416 /* House.swift */; };
+		58ACEC1923FC8289007A9327 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ACEC1823FC8289007A9327 /* Rating.swift */; };
 		58DB9AA423F5F03800B2C47A /* EpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58DB9AA323F5F03800B2C47A /* EpisodeViewController.xib */; };
 		58DB9AA623F5F04B00B2C47A /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9AA523F5F04B00B2C47A /* EpisodeViewController.swift */; };
 		58DB9AAA23F5F41300B2C47A /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9AA923F5F41300B2C47A /* Episode.swift */; };
@@ -65,6 +66,7 @@
 		589E9B0C23FB4B9C00952416 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		589E9B0E23FB513500952416 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		589E9B1023FB54E900952416 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		58ACEC1823FC8289007A9327 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		58DB9AA323F5F03800B2C47A /* EpisodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeViewController.xib; sourceTree = "<group>"; };
 		58DB9AA523F5F04B00B2C47A /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		58DB9AA923F5F41300B2C47A /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				589E9B0C23FB4B9C00952416 /* Cast.swift */,
 				58DB9AA923F5F41300B2C47A /* Episode.swift */,
 				589E9B1023FB54E900952416 /* House.swift */,
+				58ACEC1823FC8289007A9327 /* Rating.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				5805532323F34BC6002AE312 /* AppDelegate.swift in Sources */,
 				58DB9AB323F602AB00B2C47A /* SettingsViewController.swift in Sources */,
 				58DB9AB823F6083800B2C47A /* HousesViewController.swift in Sources */,
+				58ACEC1923FC8289007A9327 /* Rating.swift in Sources */,
 				58DB9AA623F5F04B00B2C47A /* EpisodeViewController.swift in Sources */,
 				589E9B0923FB489200952416 /* CastTableViewCell.swift in Sources */,
 				58DB9AAA23F5F41300B2C47A /* Episode.swift in Sources */,

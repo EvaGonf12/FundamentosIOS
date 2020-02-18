@@ -39,11 +39,9 @@ class RateViewController: UIViewController {
     
     
     @IBAction func confirm(_ sender: Any) {
-        let valueSlider = rateSlider.value
-        print("Aceptando \(valueSlider)")
-        UIView.animate(withDuration: 0.5) {
-            self.imageView.frame.origin.y = 200
-        }
+        let rating = Rating.init(id: 54, rate: .rated(value: 8))
+        DataController.shared.rateEpisode(episode, value: 8)
+        DataController.shared.removeRateEpisode(episode)
     }
     
     @IBAction func close(_ sender: Any) {
