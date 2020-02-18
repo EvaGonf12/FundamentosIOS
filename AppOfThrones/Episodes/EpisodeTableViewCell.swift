@@ -13,7 +13,7 @@ class EpisodeTableViewCell : UITableViewCell {
     @IBOutlet weak var thumb: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
-    @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var rate: UIButton!
     
     override func awakeFromNib() {
         // Forma parte del ciclo de vida de una lista
@@ -21,7 +21,7 @@ class EpisodeTableViewCell : UITableViewCell {
         self.thumb.layer.cornerRadius = 2.0
         self.thumb.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         self.thumb.layer.borderWidth = 1.0
-        self.rateButton.layer.cornerRadius = 15
+        self.rate.layer.cornerRadius = 15
     }
     
     func setEpisode(_ episode: Episode) {
@@ -29,4 +29,6 @@ class EpisodeTableViewCell : UITableViewCell {
         self.title.text = episode.name
         self.subtitle.text = episode.overview
     }
+    
+    
 }

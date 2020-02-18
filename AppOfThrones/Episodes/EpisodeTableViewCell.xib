@@ -68,7 +68,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <connections>
-                <outlet property="rateButton" destination="UCq-wv-KOl" id="M94-Kw-EhT"/>
+                <outlet property="rate" destination="UCq-wv-KOl" id="Ipo-Xw-Fb7"/>
                 <outlet property="subtitle" destination="0yW-JY-TkX" id="MGh-nM-yWg"/>
                 <outlet property="thumb" destination="P7S-Gd-Xea" id="xyy-WU-KXl"/>
                 <outlet property="title" destination="89t-oj-tyz" id="k4y-8q-oVg"/>

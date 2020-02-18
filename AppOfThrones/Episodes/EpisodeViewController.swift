@@ -55,6 +55,8 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Se ha hecho tap en la celda con sección \(indexPath.section) y fila \(indexPath.row)")
+        let rateViewController = RateViewController()
+        self.present(rateViewController, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

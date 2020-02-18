@@ -17,9 +17,28 @@ class RateViewController: UIViewController {
     @IBOutlet weak var rateSlider: UISlider!
     @IBOutlet weak var imageView: UIImageView!
     
-    // MARK: - Actions
+    @IBOutlet weak var star01: UIImageView!
+    @IBOutlet weak var star02: UIImageView!
+    @IBOutlet weak var star03: UIImageView!
+    @IBOutlet weak var star04: UIImageView!
+    @IBOutlet weak var star05: UIImageView!
     
-    @IBAction func rateButtonAction(_ sender: UIButton) {
+    // MARK: - Ciclo de vida
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.rateLabel.textColor = UIColor.red
+        self.rateButton.layer.cornerRadius = 4
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func sliderFire(_ sender: Any) {
+        let valueDouble = Double(rateSlider.value)
+        self.setRating(valueDouble)
+    }
+    
+    
+    @IBAction func confirm(_ sender: Any) {
         let valueSlider = rateSlider.value
         print("Aceptando \(valueSlider)")
         UIView.animate(withDuration: 0.5) {
@@ -27,19 +46,31 @@ class RateViewController: UIViewController {
         }
     }
     
-    @IBAction func rateSliderAction(_ sender: UISlider) {
-        let valueInt = Int(rateSlider.value)
-        self.rateLabel.text = "\(valueInt)"
-    }
-    
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Ciclo de vida
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.rateLabel.textColor = UIColor.red
-        self.rateButton.layer.cornerRadius = 4
+    // MARK: - Rating
+    
+    func setRating(_ rating: Double) {
+        let rate = Double(Int(rateSlider.value * 5) / 5)
+        rateLabel.text = String(rate)
+        self.setStarImage(star01, rating: rating, position: 0)
+        self.setStarImage(star02, rating: rating, position: 1)
+        self.setStarImage(star03, rating: rating, position: 2)
+        self.setStarImage(star04, rating: rating, position: 3)
+        self.setStarImage(star05, rating: rating, position: 4)
+    }
+    
+    func setStarImage(_ imageView: UIImageView, rating: Double, position: Int) {
+        let positionDouble = Double(position * 2)
+        if rating >= positionDouble + 1.0 &&
+            rating < positionDouble + 2.0 {
+            imageView.image = UIImage.init(systemName: "star.lefthalf.fill")
+        } else if rating >= positionDouble {
+            imageView.image = UIImage.init(systemName: "star.fill")
+        } else {
+            imageView.image = UIImage.init(systemName: "star")
+        }
     }
 }
