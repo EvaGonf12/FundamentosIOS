@@ -8,9 +8,9 @@
 
 import UIKit
 
-class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate {
 
-    
+    // MARK: - Model
     var episodes: [Episode] = [Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
     Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
     Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
@@ -59,7 +59,13 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         // Se va a ejecutar si permite la seleccion de la celda
-        return false
+        return true
+    }
+    
+    // MARK: - RateViewControllerDelegate
+    
+    func didRateChanged() {
+        self.tableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource
@@ -78,8 +84,17 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Se crea la celda
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell {
+            // Todas las variables dentro de la clausura solo existirán durante la vida de la clausura
             let ep = episodes[indexPath.row]
             cell.setEpisode(ep)
+            cell.rateBlock = { () -> Void in
+                // En este momento podemos decir que se CAPTURA EL AMBIENTE DE ESE MOMENTO
+                let rateViewController = RateViewController.init(withEpisode: ep)
+                rateViewController.delegate = self
+                // Crea una barra para poner título y demás
+                let navigationController = UINavigationController.init(rootViewController: rateViewController)
+                self.present(navigationController, animated: true, completion: nil)
+            }
             return cell
         }
         fatalError("No se ha podido crear la celda Episode")

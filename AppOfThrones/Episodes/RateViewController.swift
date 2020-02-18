@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol RateViewControllerDelegate {
+    func didRateChanged()
+}
+
+
 class RateViewController: UIViewController {
     
     // MARK: - Outlets
@@ -24,6 +29,8 @@ class RateViewController: UIViewController {
     @IBOutlet weak var star05: UIImageView!
     
     private var episode : Episode?
+    var delegate: RateViewControllerDelegate?
+
     
     convenience init(withEpisode episode: Episode) {
         self.init()
@@ -47,9 +54,13 @@ class RateViewController: UIViewController {
     
     
     @IBAction func confirm(_ sender: Any) {
-        let rate = Double(Int(rateSlider.value * 5) / 10)
+        let rate = Double(Int(rateSlider.value * 5)/10)
+        print("Episode ID \(self.episode?.id)")
         if let episode = self.episode {
             DataController.shared.rateEpisode(episode, value: rate)
+            // Esto se aplica sobre el elemento que se presenta
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.delegate?.didRateChanged()
         }
     }
     
@@ -60,13 +71,13 @@ class RateViewController: UIViewController {
     // MARK: - Rating
     
     func setRating(_ rating: Double) {
-        let rate = Double(Int(rating * 5) / 10)
+        let rate = Double(Int(rating * 5)/10)
         self.rateLabel.text = String(rate)
         self.setStarImage(self.star01, rating: rating, position: 0)
-        self.setStarImage(self.star02, rating: rating, position: 1)
-        self.setStarImage(self.star03, rating: rating, position: 2)
-        self.setStarImage(self.star04, rating: rating, position: 3)
-        self.setStarImage(self.star05, rating: rating, position: 4)
+        self.setStarImage(self.star02, rating: rating, position: 2)
+        self.setStarImage(self.star03, rating: rating, position: 4)
+        self.setStarImage(self.star04, rating: rating, position: 6)
+        self.setStarImage(self.star05, rating: rating, position: 8)
     }
     
     func setStarImage(_ imageView: UIImageView, rating: Double, position: Int) {

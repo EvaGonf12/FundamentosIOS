@@ -94,7 +94,7 @@
                         <constraint firstAttribute="width" constant="30" id="pIv-ge-iix"/>
                     </constraints>
                 </imageView>
-                <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="CSZ-b2-KUv">
+                <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="CSZ-b2-KUv">
                     <rect key="frame" x="18" y="515.66666666666663" width="339" height="30.333333333333371"/>
                     <color key="tintColor" red="0.99607843139999996" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
