@@ -23,6 +23,14 @@ class RateViewController: UIViewController {
     @IBOutlet weak var star04: UIImageView!
     @IBOutlet weak var star05: UIImageView!
     
+    private var episode : Episode?
+    
+    convenience init(withEpisode episode: Episode) {
+        self.init()
+        self.episode = episode
+        self.title = episode.name
+    }
+
     // MARK: - Ciclo de vida
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +47,10 @@ class RateViewController: UIViewController {
     
     
     @IBAction func confirm(_ sender: Any) {
-        let rating = Rating.init(id: 54, rate: .rated(value: 8))
-        DataController.shared.rateEpisode(episode, value: 8)
-        DataController.shared.removeRateEpisode(episode)
+        let rate = Double(Int(rateSlider.value * 5) / 10)
+        if let episode = self.episode {
+            DataController.shared.rateEpisode(episode, value: rate)
+        }
     }
     
     @IBAction func close(_ sender: Any) {
@@ -51,13 +60,13 @@ class RateViewController: UIViewController {
     // MARK: - Rating
     
     func setRating(_ rating: Double) {
-        let rate = Double(Int(rateSlider.value * 5) / 5)
-        rateLabel.text = String(rate)
-        self.setStarImage(star01, rating: rating, position: 0)
-        self.setStarImage(star02, rating: rating, position: 1)
-        self.setStarImage(star03, rating: rating, position: 2)
-        self.setStarImage(star04, rating: rating, position: 3)
-        self.setStarImage(star05, rating: rating, position: 4)
+        let rate = Double(Int(rating * 5) / 10)
+        self.rateLabel.text = String(rate)
+        self.setStarImage(self.star01, rating: rating, position: 0)
+        self.setStarImage(self.star02, rating: rating, position: 1)
+        self.setStarImage(self.star03, rating: rating, position: 2)
+        self.setStarImage(self.star04, rating: rating, position: 3)
+        self.setStarImage(self.star05, rating: rating, position: 4)
     }
     
     func setStarImage(_ imageView: UIImageView, rating: Double, position: Int) {

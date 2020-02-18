@@ -26,9 +26,6 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        let episodeController = DataController.shared
-        episodeController.id = 10
-        print("episodeController id \(episodeController.id)")
     }
     
     // MARK: - Setup
@@ -58,6 +55,11 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
         let rateViewController = RateViewController()
         self.present(rateViewController, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        // Se va a ejecutar si permite la seleccion de la celda
+        return false
     }
     
     // MARK: - UITableViewDataSource

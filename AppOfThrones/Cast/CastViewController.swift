@@ -22,9 +22,6 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        let castController = DataController.shared
-        //castController.id = 5
-        print("CastController id \(castController.id)")
     }
 
     // MARK: - Setup

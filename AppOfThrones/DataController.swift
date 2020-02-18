@@ -21,15 +21,26 @@ class DataController {
     // MARK: - Rating
     
     func rateEpisode(_ episode: Episode, value: Double) {
-        
+        if self.ratingForEpisode(episode) == nil {
+            print("No existe el episodio")
+            let rateValue = Rating.init(id: episode.id, rate: Rate.rated(value: value))
+            ratings.append(rateValue)
+        }
     }
     
     func removeRateEpisode(_ episode: Episode) {
-        
+        if let index = self.ratings.firstIndex(where: { (rating) -> Bool in
+            return episode.id == rating.id
+        }) {
+            self.ratings.remove(at: index)
+        }
     }
     
-    func ratingForEpisode(_ episode: Episode) -> Rating {
-        
+    func ratingForEpisode(_ episode: Episode) -> Rating? {
+        let filtered = ratings.filter { (rating) -> Bool in
+            rating.id == episode.id // Es un return que no hace falta poner
+        }
+        return filtered.first
     }
     
 }

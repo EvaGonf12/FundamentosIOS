@@ -30,5 +30,8 @@ class EpisodeTableViewCell : UITableViewCell {
         self.subtitle.text = episode.overview
     }
     
+    @IBAction func fireRate(_ sender: Any) {
+        // Quiero que esto provoque un efecto en el ViewController
+    }
     
 }
