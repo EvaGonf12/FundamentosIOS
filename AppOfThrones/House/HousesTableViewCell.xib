@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-M2-LLb">
-                        <rect key="frame" x="138" y="8" width="256" height="21"/>
+                        <rect key="frame" x="138" y="14" width="256" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="F9v-wO-Ke6"/>
                         </constraints>
@@ -24,17 +24,14 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rs3-Sk-6Bh">
-                        <rect key="frame" x="138" y="37" width="256" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="eYY-3u-e3v"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label con más cosas quq quiero que aparezcan en el label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rs3-Sk-6Bh">
+                        <rect key="frame" x="138" y="43" width="256" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDR-K2-XLx">
-                        <rect key="frame" x="138" y="94" width="256" height="21"/>
+                        <rect key="frame" x="138" y="95" width="256" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="T8K-mo-1Ox"/>
                         </constraints>
@@ -54,8 +51,9 @@
                 <constraints>
                     <constraint firstItem="Rs3-Sk-6Bh" firstAttribute="leading" secondItem="64b-D8-2i2" secondAttribute="trailing" constant="8" id="4hJ-tX-7Gf"/>
                     <constraint firstItem="64b-D8-2i2" firstAttribute="centerY" secondItem="K8i-gG-Su4" secondAttribute="centerY" id="51h-PN-cBf"/>
-                    <constraint firstItem="nO3-M2-LLb" firstAttribute="top" secondItem="K8i-gG-Su4" secondAttribute="top" constant="8" id="A1z-IM-84t"/>
-                    <constraint firstItem="IDR-K2-XLx" firstAttribute="bottom" secondItem="K8i-gG-Su4" secondAttribute="bottomMargin" id="JO8-Cl-9kt"/>
+                    <constraint firstItem="nO3-M2-LLb" firstAttribute="top" secondItem="K8i-gG-Su4" secondAttribute="top" constant="14" id="A1z-IM-84t"/>
+                    <constraint firstItem="IDR-K2-XLx" firstAttribute="top" secondItem="Rs3-Sk-6Bh" secondAttribute="bottom" constant="9" id="Dgg-lQ-5Cp"/>
+                    <constraint firstItem="IDR-K2-XLx" firstAttribute="bottom" secondItem="K8i-gG-Su4" secondAttribute="bottomMargin" constant="1" id="JO8-Cl-9kt"/>
                     <constraint firstAttribute="trailing" secondItem="nO3-M2-LLb" secondAttribute="trailing" constant="20" id="JZV-j8-3oe"/>
                     <constraint firstItem="Rs3-Sk-6Bh" firstAttribute="top" secondItem="nO3-M2-LLb" secondAttribute="bottom" constant="8" id="O2f-GJ-3b9"/>
                     <constraint firstItem="64b-D8-2i2" firstAttribute="leading" secondItem="K8i-gG-Su4" secondAttribute="leading" constant="20" id="aT2-Yh-CuP"/>

@@ -11,9 +11,16 @@ import UIKit
 class HousesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Model
-    let houses: [House] = [House.init(imageName: "Arryn", name: "Casa 1", words: "Palabras de la casa 1", seat: "Ni idea que es esto"),
-    House.init(imageName: "Stark", name: "Casa 1", words: "Palabras de la casa 1", seat: "Ni idea que es esto"),
-    House.init(imageName: "Tully", name: "Casa 1", words: "Palabras de la casa 1", seat: "Ni idea que es esto")]
+    let houses: [House] = [
+        House.init(imageName: "Arryn", name: "Casa Arryn", words: "Tan alto como el honor", seat: "Ni idea que es esto"),
+        House.init(imageName: "Baratheon", name: "Casa Baratheon", words: "Nuestra es la Furia", seat: "Ni idea que es esto"),
+        House.init(imageName: "Greyjoy", name: "Casa Greyjoy", words: "Nosotros no Sembramos", seat: "Ni idea que es esto"),
+        House.init(imageName: "Lannister", name: "Casa Lannister", words: "¡Oye mi rugido!", seat: "Ni idea que es esto"),
+        House.init(imageName: "Martell", name: "Casa Martell", words: "Nunca doblegado, Nunca roto", seat: "Ni idea que es esto"),
+        House.init(imageName: "Stark", name: "Casa Stark", words: "Se acerca el invierno", seat: "Ni idea que es esto"),
+        House.init(imageName: "Targaryen", name: "Casa Targaryen", words: "Sangre y fuego", seat: "Ni idea que es esto"),
+        House.init(imageName: "Tully", name: "Casa Tully", words: "Familia, Deber, Honor", seat: "Ni idea que es esto"),
+        House.init(imageName: "Tyrell", name: "Casa Tyrell", words: "Crecer fuerte", seat: "Ni idea que es esto")]
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
