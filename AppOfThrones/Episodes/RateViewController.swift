@@ -16,7 +16,6 @@ protocol RateViewControllerDelegate {
 class RateViewController: UIViewController {
     
     // MARK: - Outlets
-    
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var rateButton: UIButton!
     @IBOutlet weak var rateSlider: UISlider!
@@ -29,9 +28,12 @@ class RateViewController: UIViewController {
     @IBOutlet weak var star05: UIImageView!
     
     private var episode : Episode?
+    
+    // MARK: - DELEGATES
+    
     var delegate: RateViewControllerDelegate?
 
-    
+    // MARK: - INIT CONVENIENCE
     convenience init(withEpisode episode: Episode) {
         self.init()
         self.episode = episode
@@ -47,15 +49,15 @@ class RateViewController: UIViewController {
     
     // MARK: - IBActions
     
+    // Movimiento del SLIDER
     @IBAction func sliderFire(_ sender: Any) {
         let valueDouble = Double(rateSlider.value)
         self.setRating(valueDouble)
     }
     
-    
+    // Botón ACEPTAR
     @IBAction func confirm(_ sender: Any) {
         let rate = Double(Int(rateSlider.value * 5)/10)
-        print("Episode ID \(self.episode?.id)")
         if let episode = self.episode {
             DataController.shared.rateEpisode(episode, value: rate)
             // Esto se aplica sobre el elemento que se presenta
@@ -64,12 +66,14 @@ class RateViewController: UIViewController {
         }
     }
     
+    // BOTÓN CERRAR
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Rating
+    // MARK: - RATING
     
+    // Modificar RATE
     func setRating(_ rating: Double) {
         let rate = Double(Int(rating * 5)/10)
         self.rateLabel.text = String(rate)
@@ -80,12 +84,12 @@ class RateViewController: UIViewController {
         self.setStarImage(self.star05, rating: rating, position: 8)
     }
     
-    func setStarImage(_ imageView: UIImageView, rating: Double, position: Int) {
+    func setStarImage(_ imageView: UIImageView, rating: Double, position: Double) {
         let positionDouble = Double(position * 2)
         if rating >= positionDouble + 1.0 &&
             rating < positionDouble + 2.0 {
             imageView.image = UIImage.init(systemName: "star.lefthalf.fill")
-        } else if rating >= positionDouble {
+        } else if rating >= positionDouble + 2.0 {
             imageView.image = UIImage.init(systemName: "star.fill")
         } else {
             imageView.image = UIImage.init(systemName: "star")
