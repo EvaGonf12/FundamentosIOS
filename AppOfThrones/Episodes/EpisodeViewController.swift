@@ -10,17 +10,17 @@ import UIKit
 
 class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate {
 
-    // MARK: - Model
-    var episodes: [Episode] = [Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
-    Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
-    Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
-    Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert...")]
-
-    
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Model
+    var episodes: [Episode] = [Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
+    Episode.init(id: 2, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
+    Episode.init(id: 3, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
+    Episode.init(id: 4, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert...")]
+
+        
     // MARK: - Ciclo de vida
 
     override func viewDidLoad() {
@@ -31,7 +31,6 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     // MARK: - Setup
     
     func setupUI() {
-        // Aquí va toda la configuración de Setup
         self.title = "Seasons"
         // El bundle es el saco de recursos: imagen, audio, .xib, etc
         // Cada vez el bundle se usa menos porque tenemos los xcassets
@@ -51,7 +50,6 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Se ha hecho tap en la celda con sección \(indexPath.section) y fila \(indexPath.row)")
         let rateViewController = RateViewController()
         self.present(rateViewController, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -100,14 +98,5 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
         fatalError("No se ha podido crear la celda Episode")
     }
     
-    
-    // MARK: - Actions
-    
-//    @IBAction func openRate(_ sender: Any) {
-//        let rateViewController = RateViewController()
-//        // Diferentes modos de presentación de la view
-//        rateViewController.modalPresentationStyle = .fullScreen
-//        self.present(rateViewController, animated: true, completion: nil)
-//    }
     
 }

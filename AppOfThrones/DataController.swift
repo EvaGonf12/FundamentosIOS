@@ -11,19 +11,19 @@ import Foundation
 // El controlador PURO -> encargado de la lógica
 class DataController {
     
+    // MARK: - SHARED
     // Todo lo que va después de static es una variable de clase a laque se puede llamar sin instanciar la clase
     static var shared = DataController()
-    private init() {}
     
+    // MARK: - MODEL
     // Debe ponerse PRIVATE porque ya que es un singleton así nos evitamos que se pueda tocar por todo el código
     private var ratings: [Rating] = []
     
-    // MARK: - Rating
+    // MARK: - RATING
     
     // Esto puntúa a un episodio
     func rateEpisode(_ episode: Episode, value: Double) {
         if self.ratingForEpisode(episode) == nil {
-            print("No existe el episodio")
             let rateValue = Rating.init(id: episode.id, rate: Rate.rated(value: value))
             ratings.append(rateValue)
         }
@@ -41,7 +41,7 @@ class DataController {
     // Devuelve el estado de Rating del Episodio
     func ratingForEpisode(_ episode: Episode) -> Rating? {
         let filtered = ratings.filter { (rating) -> Bool in
-            rating.id == episode.id // Es un return que no hace falta poner
+            return rating.id == episode.id // Es un return que no hace falta poner
         }
         return filtered.first
     }

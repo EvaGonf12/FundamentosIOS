@@ -44,6 +44,7 @@ class EpisodeTableViewCell : UITableViewCell {
         self.title.text = episode.name
         self.subtitle.text = episode.overview
         
+        print("SET EPISODE \(episode.id)")
         if let rating = DataController.shared.ratingForEpisode(episode) {
             switch rating.rate {
             case .rated(let value):
@@ -98,7 +99,7 @@ class EpisodeTableViewCell : UITableViewCell {
         if rating >= positionDouble + 1.0 &&
             rating < positionDouble + 2.0 {
             imageView.image = UIImage.init(systemName: "star.lefthalf.fill")
-        } else if rating >= positionDouble {
+        } else if rating >= positionDouble + 2.0 {
             imageView.image = UIImage.init(systemName: "star.fill")
         } else {
             imageView.image = UIImage.init(systemName: "star")

@@ -144,8 +144,8 @@
 		58DB9AA723F5F3D800B2C47A /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
-				58DB9AA323F5F03800B2C47A /* EpisodeViewController.xib */,
 				58DB9AA523F5F04B00B2C47A /* EpisodeViewController.swift */,
+				58DB9AA323F5F03800B2C47A /* EpisodeViewController.xib */,
 				589E9B0423FB319C00952416 /* EpisodeTableViewCell.swift */,
 				589E9B0623FB31E600952416 /* EpisodeTableViewCell.xib */,
 				5805534423F35E32002AE312 /* RateViewController.swift */,

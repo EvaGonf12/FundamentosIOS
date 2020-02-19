@@ -84,6 +84,7 @@ class RateViewController: UIViewController {
         self.setStarImage(self.star05, rating: rating, position: 8)
     }
     
+    // Modificar IMAGE STAR
     func setStarImage(_ imageView: UIImageView, rating: Double, position: Double) {
         let positionDouble = Double(position * 2)
         if rating >= positionDouble + 1.0 &&
