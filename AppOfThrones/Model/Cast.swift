@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Cast {
+struct Cast : Identifiable {
     var id: Int
     var avatar: String?
     var fullName : String?

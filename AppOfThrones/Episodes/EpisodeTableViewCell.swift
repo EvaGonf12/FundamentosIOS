@@ -8,13 +8,9 @@
 
 import UIKit
 
-protocol EpisodeTableViewCellDelegate {
-    func didRateChanged()
-}
-
 class EpisodeTableViewCell : UITableViewCell {
     
-    // MARK: - Outlets
+    // MARK: - OUTLETS
     @IBOutlet weak var thumb: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
@@ -26,10 +22,16 @@ class EpisodeTableViewCell : UITableViewCell {
     @IBOutlet weak var star04: UIImageView!
     @IBOutlet weak var star05: UIImageView!
     
+    @IBOutlet weak var heart: UIButton!
     
+    private var episode: Episode?
+    var delegate : FavoriteDelegate?
+
+    // MARK: - BLOQUES
     // Clausura sin parámetros de entrada ni de salida
     var rateBlock: (() -> Void)?
     
+    // MARK: - CICLO DE VIDA
     override func awakeFromNib() {
         // Forma parte del ciclo de vida de una lista
         // Se llama cuando se ha cogido la celda del XIB (NIB)
@@ -39,33 +41,37 @@ class EpisodeTableViewCell : UITableViewCell {
         self.rate.layer.cornerRadius = 15
     }
     
+    // MARK: - SETUP DATA EPISODE
+    
     func setEpisode(_ episode: Episode) {
         self.thumb.image = UIImage.init(named: episode.image ?? "")
         self.title.text = episode.name
         self.subtitle.text = episode.overview
         
-        print("SET EPISODE \(episode.id)")
+        let heartImagedNamed = DataController.shared.isFavoriteEpisode(episode) ? "heart.fill" : "heart"
+        let heartImage = UIImage.init(systemName: heartImagedNamed)
+        self.heart.setImage(heartImage, for: .normal)
+        
         if let rating = DataController.shared.ratingForEpisode(episode) {
             switch rating.rate {
             case .rated(let value):
-                print("RATED")
                 self.setRating(value)
             case .unrated:
-                print("UNRATED")
                 self.modeRate()
             }
         } else {
-            print("NIL")
             self.modeRate()
         }
     }
+    
+    // MARK: - IBACTIONS
     
     @IBAction func fireRate(_ sender: Any) {
         // Quiero que esto provoque un efecto en el ViewController -> CLAUSURAS
         self.rateBlock?()
     }
     
-    // MARK: - Rating
+    // MARK: - RATING
     
     func modeRate() {
         self.rate.isHidden = false
@@ -103,6 +109,21 @@ class EpisodeTableViewCell : UITableViewCell {
             imageView.image = UIImage.init(systemName: "star.fill")
         } else {
             imageView.image = UIImage.init(systemName: "star")
+        }
+    }
+    
+    
+    
+    @IBAction func heartAction(_ sender: Any) {
+        if let episode = self.episode {
+            if DataController.shared.isFavoriteEpisode(episode) == false {
+                DataController.shared.removeFavoriteEpisode(episode)
+            } else {
+                DataController.shared.addFavoriteEpisode(episode)
+            }
+            
+        } else {
+            
         }
     }
 }

@@ -49,28 +49,33 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="siU-ea-jN0">
-                        <rect key="frame" x="373" y="21.5" width="21" height="83.5"/>
-                        <color key="tintColor" red="0.99607843139999996" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZi-2r-xv6">
+                        <rect key="frame" x="361" y="20" width="33" height="86"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="21" id="lhM-DD-ZW0"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="cys-GS-WKZ"/>
+                            <constraint firstAttribute="width" constant="33" id="nTN-w8-Hg8"/>
                         </constraints>
-                    </imageView>
+                        <color key="tintColor" red="0.99607843139999996" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" image="heart" catalog="system"/>
+                        <connections>
+                            <action selector="favoriteAction:" destination="YqT-BW-dJ5" eventType="touchUpInside" id="o1Q-Ce-gjM"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="UfT-iX-1jd" firstAttribute="leading" secondItem="etE-30-Yus" secondAttribute="trailing" constant="8" id="8ZW-hA-D2t"/>
-                    <constraint firstAttribute="bottom" secondItem="siU-ea-jN0" secondAttribute="bottom" constant="20" symbolic="YES" id="CoC-dt-jqN"/>
                     <constraint firstItem="etE-30-Yus" firstAttribute="leading" secondItem="9s2-M6-QtC" secondAttribute="leading" constant="20" id="FYu-29-NTj"/>
                     <constraint firstAttribute="trailing" secondItem="wgr-f3-VtN" secondAttribute="trailing" constant="72" id="Gga-Zd-JCv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="QAW-Jh-bKz" secondAttribute="trailing" constant="33" id="HQh-Zn-pIq"/>
                     <constraint firstItem="QAW-Jh-bKz" firstAttribute="leading" secondItem="etE-30-Yus" secondAttribute="trailing" constant="8" id="S2o-oI-Isn"/>
-                    <constraint firstItem="siU-ea-jN0" firstAttribute="top" secondItem="9s2-M6-QtC" secondAttribute="top" constant="20" symbolic="YES" id="S8b-PC-rzQ"/>
                     <constraint firstItem="etE-30-Yus" firstAttribute="top" secondItem="9s2-M6-QtC" secondAttribute="top" constant="8" id="Wyz-7L-hEx"/>
                     <constraint firstItem="QAW-Jh-bKz" firstAttribute="bottom" secondItem="9s2-M6-QtC" secondAttribute="bottomMargin" id="ZN3-e2-ySc"/>
-                    <constraint firstAttribute="trailing" secondItem="siU-ea-jN0" secondAttribute="trailing" constant="20" id="a3F-D9-dce"/>
                     <constraint firstItem="wgr-f3-VtN" firstAttribute="leading" secondItem="etE-30-Yus" secondAttribute="trailing" constant="8" id="hPG-rM-b2c"/>
+                    <constraint firstItem="cZi-2r-xv6" firstAttribute="top" secondItem="9s2-M6-QtC" secondAttribute="top" constant="20" symbolic="YES" id="lCQ-l5-OdK"/>
                     <constraint firstItem="wgr-f3-VtN" firstAttribute="top" secondItem="UfT-iX-1jd" secondAttribute="bottom" constant="2" id="qsO-eb-0MK"/>
+                    <constraint firstAttribute="bottom" secondItem="cZi-2r-xv6" secondAttribute="bottom" constant="20" symbolic="YES" id="rbd-Ct-djq"/>
+                    <constraint firstAttribute="trailing" secondItem="cZi-2r-xv6" secondAttribute="trailing" constant="20" id="rp6-nk-Dac"/>
                     <constraint firstItem="UfT-iX-1jd" firstAttribute="top" secondItem="9s2-M6-QtC" secondAttribute="top" constant="20" id="uI4-Ld-YQV"/>
                     <constraint firstAttribute="bottom" secondItem="etE-30-Yus" secondAttribute="bottom" constant="8" id="vnz-r4-dfY"/>
                 </constraints>
@@ -79,7 +84,7 @@
                 <outlet property="Role" destination="wgr-f3-VtN" id="I4D-YO-KrM"/>
                 <outlet property="avatar" destination="etE-30-Yus" id="3KD-If-xhZ"/>
                 <outlet property="episodes" destination="QAW-Jh-bKz" id="1W8-dx-NU6"/>
-                <outlet property="heart" destination="siU-ea-jN0" id="Wff-hg-1La"/>
+                <outlet property="heart" destination="cZi-2r-xv6" id="q04-tZ-jXU"/>
                 <outlet property="name" destination="UfT-iX-1jd" id="ZyE-KF-dUg"/>
             </connections>
             <point key="canvasLocation" x="115.94202898550725" y="109.15178571428571"/>

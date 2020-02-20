@@ -8,28 +8,34 @@
 
 import UIKit
 
-class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate {
+class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate, FavoriteDelegate {
 
-    // MARK: - Outlets
+    // MARK: - OUTLETS
     
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Model
-    var episodes: [Episode] = [Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
-    Episode.init(id: 2, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
-    Episode.init(id: 3, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert..."),
-    Episode.init(id: 4, name: "Winter is comming", date: "Abril 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jonh Arryn, the hand of the kin, is dead. King Robert...")]
+    // MARK: - MODEL
+    var episodes: [Episode] = [
+        Episode.init(id: 1, name: "Winter is comming", date: "Abril 17, 2011", image: "3pcFXQOKHnZhRkGCQ7Y8HRB1v8V", episode: 1, season: 1, overview: "April 17, 2011"),
+        Episode.init(id: 2, name: "Winter is comming", date: "Abril 17, 2011", image: "4j2j97GFao2NX4uAtMbr0Qhx2K2", episode: 1, season: 1, overview: "April 24, 2011"),
+        Episode.init(id: 3, name: "Winter is comming", date: "Abril 17, 2011", image: "6FcfWGFlDyWZ2JvQi8uvkxbDx1z", episode: 1, season: 1, overview: "May 1, 2011"),
+        Episode.init(id: 4, name: "Winter is comming", date: "Abril 17, 2011", image: "9ZvT1IZPcC11eiCByOzqQvC3CCR", episode: 1, season: 1, overview: "May 8, 2011")
+    ]
 
         
-    // MARK: - Ciclo de vida
-
+    // MARK: - CICLO DE VIDA
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.setupNotifications()
     }
     
-    // MARK: - Setup
+    deinit {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.removeObserver(self, name: noteName, object: nil)
+    }
     
+    // MARK: - SETUP
     func setupUI() {
         self.title = "Seasons"
         // El bundle es el saco de recursos: imagen, audio, .xib, etc
@@ -40,6 +46,11 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
         // Se especifica que es el controller (el fileOwner) el encargado de gestionar la tabla
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    
+    func setupNotifications() {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFavoriteChanged), name: noteName, object: nil)
     }
     
     // MARK: - UITableViewDelegate
@@ -84,6 +95,7 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell {
             // Todas las variables dentro de la clausura solo existirán durante la vida de la clausura
             let ep = episodes[indexPath.row]
+            cell.delegate = self
             cell.setEpisode(ep)
             cell.rateBlock = { () -> Void in
                 // En este momento podemos decir que se CAPTURA EL AMBIENTE DE ESE MOMENTO
@@ -98,5 +110,8 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
         fatalError("No se ha podido crear la celda Episode")
     }
     
-    
+    // MARK: DELEGATE
+    @objc func didFavoriteChanged() {
+        self.tableView.reloadData()
+    }
 }

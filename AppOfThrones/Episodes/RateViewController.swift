@@ -15,7 +15,7 @@ protocol RateViewControllerDelegate {
 
 class RateViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: - OUTLETS
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var rateButton: UIButton!
     @IBOutlet weak var rateSlider: UISlider!
@@ -40,14 +40,14 @@ class RateViewController: UIViewController {
         self.title = episode.name
     }
 
-    // MARK: - Ciclo de vida
+    // MARK: - CICLO DE VIDA
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rateLabel.textColor = UIColor.red
         self.rateButton.layer.cornerRadius = 4
     }
     
-    // MARK: - IBActions
+    // MARK: - IBACTIONS
     
     // Movimiento del SLIDER
     @IBAction func sliderFire(_ sender: Any) {

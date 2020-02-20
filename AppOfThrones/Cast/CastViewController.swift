@@ -8,23 +8,35 @@
 
 import UIKit
 
-class CastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    let cast: [Cast] = [Cast(id: 1, avatar: "asjkdbuaosid", fullName: "Emilia Clarke", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-    Cast(id: 2, avatar: "asjkdbuaosid", fullName: "asdndisubf", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-    Cast(id: 3, avatar: "asjkdbuaosid", fullName: "asdndisubf", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-    Cast(id: 4, avatar: "asjkdbuaosid", fullName: "asdndisubf", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg")]
+class CastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoriteDelegate {
     
+
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Ciclo de vida
+    // MARK: - MODEL
+    let cast: [Cast] = [
+        Cast(id: 911, avatar: "Aidan Gillen", fullName: "Aidan Gillen", role: "Petyr Baelish", episode: 67, birth: "1968-04-24", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 3, avatar: "Alfie Allen", fullName: "Alfie Allen", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "Dublin, Ireland"),
+        Cast(id: 4, avatar: "Conleth Hill", fullName: "Conleth Hill", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 4, avatar: "EJohn Bradley", fullName: "EJohn Bradley", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 1, avatar: "Iain Glen", fullName: "Iain Glen", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 1, avatar: "Lena Headey", fullName: "Lena Headey", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 1, avatar: "Maisie Williams", fullName: "Maisie Williams", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 1, avatar: "Nikolaj Coster-Waldau", fullName: "Nikolaj Coster-Waldau", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 1, avatar: "Peter Dinklage", fullName: "Peter Dinklage", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 1, avatar: "Rory McCann", fullName: "Rory McCann", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
+        Cast(id: 1, avatar: "Sophie Turner", fullName: "Sophie Turner", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg")
+    ]
+    
+    // MARK: - CICLO DE VIDA
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.setupNotifications()
     }
 
-    // MARK: - Setup
+    // MARK: - SETUP
     func setupUI() {
         self.title = "Cast"
         let nib = UINib.init(nibName: "CastTableViewCell", bundle: nil)
@@ -33,6 +45,11 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Se especifica que es el controller (el fileOwner) el encargado de gestionar la tabla
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    
+    func setupNotifications() {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFavoriteChanged), name: noteName, object: nil)
     }
     
     // MARK: - UITableViewDelegate
@@ -64,9 +81,15 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Se crea la celda
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell {
             let actor = cast[indexPath.row]
+            cell.delegate = self
             cell.setCast(actor)
             return cell
         }
         fatalError("No se ha podido crear la celda Episode")
+    }
+    
+    // MARK: - CastTableViewCellDelegate
+    @objc func didFavoriteChanged() {
+        self.tableView.reloadData()
     }
 }

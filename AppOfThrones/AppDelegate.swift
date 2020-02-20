@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // MARK: - Mis Estados
+    // MARK: - ESTADOS
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Entro en BG")
     }
 
-    // MARK: UISceneSession Lifecycle
+    // MARK: UISceneSession CICLO DE VIDA
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         
