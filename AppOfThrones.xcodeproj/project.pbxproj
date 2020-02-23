@@ -34,6 +34,8 @@
 		58DAB8A923FF30D8006069CF /* houses.json in Resources */ = {isa = PBXBuildFile; fileRef = 58DAB89F23FF30D8006069CF /* houses.json */; };
 		58DAB8AA23FF30D8006069CF /* season_8.json in Resources */ = {isa = PBXBuildFile; fileRef = 58DAB8A023FF30D8006069CF /* season_8.json */; };
 		58DAB8AB23FF30D8006069CF /* season_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 58DAB8A123FF30D8006069CF /* season_4.json */; };
+		58DAB8B02403250B006069CF /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DAB8AE2403250B006069CF /* EpisodeDetailsViewController.swift */; };
+		58DAB8B12403250B006069CF /* EpisodeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58DAB8AF2403250B006069CF /* EpisodeDetailsViewController.xib */; };
 		58DB9AA423F5F03800B2C47A /* EpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58DB9AA323F5F03800B2C47A /* EpisodeViewController.xib */; };
 		58DB9AA623F5F04B00B2C47A /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9AA523F5F04B00B2C47A /* EpisodeViewController.swift */; };
 		58DB9AAA23F5F41300B2C47A /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9AA923F5F41300B2C47A /* Episode.swift */; };
@@ -87,6 +89,8 @@
 		58DAB89F23FF30D8006069CF /* houses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = houses.json; sourceTree = "<group>"; };
 		58DAB8A023FF30D8006069CF /* season_8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_8.json; sourceTree = "<group>"; };
 		58DAB8A123FF30D8006069CF /* season_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_4.json; sourceTree = "<group>"; };
+		58DAB8AE2403250B006069CF /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
+		58DAB8AF2403250B006069CF /* EpisodeDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailsViewController.xib; sourceTree = "<group>"; };
 		58DB9AA323F5F03800B2C47A /* EpisodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeViewController.xib; sourceTree = "<group>"; };
 		58DB9AA523F5F04B00B2C47A /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		58DB9AA923F5F41300B2C47A /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				589E9B0623FB31E600952416 /* EpisodeTableViewCell.xib */,
 				5805534423F35E32002AE312 /* RateViewController.swift */,
 				5805534623F35E90002AE312 /* RateViewController.xib */,
+				58DAB8AE2403250B006069CF /* EpisodeDetailsViewController.swift */,
+				58DAB8AF2403250B006069CF /* EpisodeDetailsViewController.xib */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				58DAB8A823FF30D8006069CF /* season_7.json in Resources */,
 				58DAB8A323FF30D8006069CF /* season_1.json in Resources */,
 				5805532C23F34BC7002AE312 /* Assets.xcassets in Resources */,
+				58DAB8B12403250B006069CF /* EpisodeDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +374,7 @@
 				5805534523F35E32002AE312 /* RateViewController.swift in Sources */,
 				5805532323F34BC6002AE312 /* AppDelegate.swift in Sources */,
 				58DB9AB323F602AB00B2C47A /* SettingsViewController.swift in Sources */,
+				58DAB8B02403250B006069CF /* EpisodeDetailsViewController.swift in Sources */,
 				58DB9AB823F6083800B2C47A /* HousesViewController.swift in Sources */,
 				58ACEC1923FC8289007A9327 /* Rating.swift in Sources */,
 				58DB9AA623F5F04B00B2C47A /* EpisodeViewController.swift in Sources */,
