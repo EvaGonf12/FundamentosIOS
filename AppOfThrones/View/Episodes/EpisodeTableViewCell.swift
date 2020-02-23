@@ -14,41 +14,42 @@ class EpisodeTableViewCell : UITableViewCell {
     @IBOutlet weak var thumb: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
-    @IBOutlet weak var rate: UIButton!
-    
     @IBOutlet weak var star01: UIImageView!
     @IBOutlet weak var star02: UIImageView!
     @IBOutlet weak var star03: UIImageView!
     @IBOutlet weak var star04: UIImageView!
     @IBOutlet weak var star05: UIImageView!
-    
+    @IBOutlet weak var rate: UIButton!
     @IBOutlet weak var heart: UIButton!
     
+    // MARK: - DATA
     private var episode: Episode?
+    
+    // MARK: - DELEGATES
     var delegate : FavoriteDelegate?
 
-    // MARK: - BLOQUES
-    // Clausura sin parámetros de entrada ni de salida
+    // MARK: - BLOCKS
     var rateBlock: (() -> Void)?
     
-    // MARK: - CICLO DE VIDA
+    // MARK: - LIFE CYCLE
     override func awakeFromNib() {
-        // Forma parte del ciclo de vida de una lista
-        // Se llama cuando se ha cogido la celda del XIB (NIB)
         self.thumb.layer.cornerRadius = 2.0
         self.thumb.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         self.thumb.layer.borderWidth = 1.0
         self.rate.layer.cornerRadius = 15
     }
     
-    // MARK: - SETUP DATA EPISODE
+    // MARK: - SETUP
     
+    // SET EPISODE
     func setEpisode(_ episode: Episode) {
+        self.episode = episode
+        
         self.thumb.image = UIImage.init(named: episode.image ?? "")
         self.title.text = episode.name
-        self.subtitle.text = episode.overview
+        self.subtitle.text = episode.date
         
-        let heartImagedNamed = DataController.shared.isFavoriteEpisode(episode) ? "heart.fill" : "heart"
+        let heartImagedNamed = DataController.shared.isFavorite(episode) ? "heart.fill" : "heart"
         let heartImage = UIImage.init(systemName: heartImagedNamed)
         self.heart.setImage(heartImage, for: .normal)
         
@@ -66,13 +67,28 @@ class EpisodeTableViewCell : UITableViewCell {
     
     // MARK: - IBACTIONS
     
+    // rate ACTION
     @IBAction func fireRate(_ sender: Any) {
-        // Quiero que esto provoque un efecto en el ViewController -> CLAUSURAS
         self.rateBlock?()
+    }
+    
+    // heart ACTION
+    @IBAction func heartAction(_ sender: Any) {
+        if let episode = self.episode {
+            if DataController.shared.isFavorite(episode) == true {
+                DataController.shared.removeFavorite(episode)
+            } else {
+                DataController.shared.addFavorite(episode)
+            }
+        }
+        let heartImagedNamed = DataController.shared.isFavorite(self.episode!) ? "heart.fill" : "heart"
+        let heartImage = UIImage.init(systemName: heartImagedNamed)
+        self.heart.setImage(heartImage, for: .normal)
     }
     
     // MARK: - RATING
     
+    // Put cell in mode RATE
     func modeRate() {
         self.rate.isHidden = false
         self.star01.isHidden = true
@@ -82,6 +98,7 @@ class EpisodeTableViewCell : UITableViewCell {
         self.star05.isHidden = true
     }
     
+    // Put cell in mode STAR
     func modeStar() {
         self.rate.isHidden = true
         self.star01.isHidden = false
@@ -91,6 +108,7 @@ class EpisodeTableViewCell : UITableViewCell {
         self.star05.isHidden = false
     }
     
+    // Set Star State
     func setRating(_ rating: Double) {
         self.modeStar()
         self.setStarImage(self.star01, rating: rating, position: 0)
@@ -100,6 +118,7 @@ class EpisodeTableViewCell : UITableViewCell {
         self.setStarImage(self.star05, rating: rating, position: 8)
     }
     
+    // Set Star image
     func setStarImage(_ imageView: UIImageView, rating: Double, position: Int) {
         let positionDouble = Double(position * 2)
         if rating >= positionDouble + 1.0 &&
@@ -109,21 +128,6 @@ class EpisodeTableViewCell : UITableViewCell {
             imageView.image = UIImage.init(systemName: "star.fill")
         } else {
             imageView.image = UIImage.init(systemName: "star")
-        }
-    }
-    
-    
-    
-    @IBAction func heartAction(_ sender: Any) {
-        if let episode = self.episode {
-            if DataController.shared.isFavoriteEpisode(episode) == false {
-                DataController.shared.removeFavoriteEpisode(episode)
-            } else {
-                DataController.shared.addFavoriteEpisode(episode)
-            }
-            
-        } else {
-            
         }
     }
 }

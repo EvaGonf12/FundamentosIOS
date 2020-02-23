@@ -27,7 +27,11 @@ class DataController {
     // MARK: - MODEL
     // Debe ponerse PRIVATE porque ya que es un singleton así nos evitamos que se pueda tocar por todo el código
     private var ratings: [Rating] = []
-    private var favorite : [Int] = []
+    private var favorite : [Int] = [] {
+        didSet {
+            print("FAVORITE \(favorite)")
+        }
+    }
     
     // MARK: - FAVORITE
     
@@ -35,43 +39,27 @@ class DataController {
         self.favorite = []
     }
     
-    // T, M, V, U -> Represeta una clase que conforma protocolo TAL
+    // T, M, U, V -> Represeta una clase que conforma protocolo TAL
+    // Para varios parámetros: <T: Identifiable, M: OtroProtocolo, ... >
     func isFavorite<T: Identifiable>(_ value: T) -> Bool {
         return favorite.contains(value.id)
     }
     
-    func isFavoriteCast(_ cast: Cast) -> Bool {
-        return favorite.contains(cast.id)
-    }
-    
-    func addFavoriteCast(_ cast : Cast) {
-        if self.isFavoriteCast(cast) == false {
-            favorite.append(cast.id)
-        }
-    }
-    
-    func removeFavoriteCast(_ cast : Cast) {
-        if let index = favorite.firstIndex(of: cast.id) {
+    func removeFavorite<T: Identifiable>(_ value: T) {
+        if let index = favorite.firstIndex(of: value.id) {
             favorite.remove(at: index)
         }
     }
     
-    
-    func isFavoriteEpisode(_ episode: Episode) -> Bool {
-        return favorite.contains(episode.id)
+    func addFavorite<T: Identifiable>(_ value : T) {
+        favorite.append(value.id)
+        // No debería estar por hacer doble comprobación
+        // Se está comprobando al pulsar el botón de favorito y una vez comprobado se vuelve a comprobar al hacer la llamada de añadir
+//        if self.isFavorite(value) == false {
+//            favorite.append(value.id)
+//        }
     }
     
-    func addFavoriteEpisode(_ episode : Episode) {
-        if self.isFavoriteEpisode(episode) == false {
-            favorite.append(episode.id)
-        }
-    }
-    
-    func removeFavoriteEpisode(_ episode : Episode) {
-        if let index = favorite.firstIndex(of: episode.id) {
-            favorite.remove(at: index)
-        }
-    }
     // MARK: - RATING
     
     // Esto puntúa a un episodio

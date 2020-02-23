@@ -33,6 +33,9 @@
                         <segment title="7"/>
                         <segment title="8"/>
                     </segments>
+                    <connections>
+                        <action selector="seasonChanged:" destination="-1" eventType="valueChanged" id="mxo-Qw-UCS"/>
+                    </connections>
                 </segmentedControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eae-Xp-Uab">
                     <rect key="frame" x="0.0" y="119" width="414" height="743"/>

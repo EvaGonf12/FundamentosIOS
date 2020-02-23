@@ -30,24 +30,27 @@ class CastTableViewCell: UITableViewCell {
     func setCast(_ cast: Cast) {
         self.cast = cast
         
-        let heartImagedNamed = DataController.shared.isFavoriteCast(cast) ? "heart.fill" : "heart"
+        let heartImagedNamed = DataController.shared.isFavorite(cast) ? "heart.fill" : "heart"
         let heartImage = UIImage.init(systemName: heartImagedNamed)
         self.heart.setImage(heartImage, for: .normal)
         
-        self.episodes.text = "\(cast.episode ?? 0) episodes"
+        self.episodes.text = "\(cast.episodes ?? 0) episodes"
         self.role.text = cast.role
-        self.name.text = cast.fullName
-        self.avatar.image = UIImage.init(named: cast.fullName ?? "")
+        self.name.text = cast.fullname
+        self.avatar.image = UIImage.init(named: cast.fullname ?? "")
     }
     
     @IBAction func favoriteAction(_ sender: Any){
         if let castAux = self.cast {
-            if DataController.shared.isFavoriteCast(castAux) == false {
-                DataController.shared.removeFavoriteCast(castAux)
+            if DataController.shared.isFavorite(castAux) == true {
+                DataController.shared.removeFavorite(castAux)
             } else {
-                DataController.shared.addFavoriteCast(castAux)
+                DataController.shared.addFavorite(castAux)
             }
             self.delegate?.didFavoriteChanged()
         }
+        let heartImagedNamed = DataController.shared.isFavorite(self.cast!) ? "heart.fill" : "heart"
+        let heartImage = UIImage.init(systemName: heartImagedNamed)
+        self.heart.setImage(heartImage, for: .normal)
     }
 }

@@ -15,25 +15,14 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - MODEL
-    let cast: [Cast] = [
-        Cast(id: 911, avatar: "Aidan Gillen", fullName: "Aidan Gillen", role: "Petyr Baelish", episode: 67, birth: "1968-04-24", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 3, avatar: "Alfie Allen", fullName: "Alfie Allen", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "Dublin, Ireland"),
-        Cast(id: 4, avatar: "Conleth Hill", fullName: "Conleth Hill", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 4, avatar: "EJohn Bradley", fullName: "EJohn Bradley", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 1, avatar: "Iain Glen", fullName: "Iain Glen", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 1, avatar: "Lena Headey", fullName: "Lena Headey", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 1, avatar: "Maisie Williams", fullName: "Maisie Williams", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 1, avatar: "Nikolaj Coster-Waldau", fullName: "Nikolaj Coster-Waldau", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 1, avatar: "Peter Dinklage", fullName: "Peter Dinklage", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 1, avatar: "Rory McCann", fullName: "Rory McCann", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg"),
-        Cast(id: 1, avatar: "Sophie Turner", fullName: "Sophie Turner", role: "dssadsad", episode: 73, birth: "1985-05-23", placeBirth: "sdkfbsdiufg")
-    ]
+    var cast: [Cast] = []
     
     // MARK: - CICLO DE VIDA
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         self.setupNotifications()
+        self.setupData()
     }
 
     // MARK: - SETUP
@@ -50,6 +39,23 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setupNotifications() {
         let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
         NotificationCenter.default.addObserver(self, selector: #selector(self.didFavoriteChanged), name: noteName, object: nil)
+    }
+    
+    func setupData() {
+        if let pathURL = Bundle.main.url(forResource: "cast", withExtension: "json") {
+            do {
+                let data = try Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                // .self dice que eso va a ser un array de episodios pero no como objeto sino como tipo
+                cast = try! decoder.decode([Cast].self, from: data)
+                self.tableView.reloadData()
+            } catch {
+                // Cierra inesperadamente la APP
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            fatalError("No se pudo obtener el path de la url")
+        }
     }
     
     // MARK: - UITableViewDelegate

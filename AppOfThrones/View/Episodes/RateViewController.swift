@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - PROTOCOLS
 protocol RateViewControllerDelegate {
     func didRateChanged()
 }
@@ -16,17 +17,18 @@ protocol RateViewControllerDelegate {
 class RateViewController: UIViewController {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var rateButton: UIButton!
-    @IBOutlet weak var rateSlider: UISlider!
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var star01: UIImageView!
     @IBOutlet weak var star02: UIImageView!
     @IBOutlet weak var star03: UIImageView!
     @IBOutlet weak var star04: UIImageView!
     @IBOutlet weak var star05: UIImageView!
+    @IBOutlet weak var rateSlider: UISlider!
+    @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
+    // MARK: - DATA
     private var episode : Episode?
     
     // MARK: - DELEGATES
@@ -40,22 +42,22 @@ class RateViewController: UIViewController {
         self.title = episode.name
     }
 
-    // MARK: - CICLO DE VIDA
+    // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.rateLabel.textColor = UIColor.red
         self.rateButton.layer.cornerRadius = 4
+        self.cancelButton.layer.cornerRadius = 4
     }
     
     // MARK: - IBACTIONS
     
-    // Movimiento del SLIDER
+    // Slider moving
     @IBAction func sliderFire(_ sender: Any) {
         let valueDouble = Double(rateSlider.value)
         self.setRating(valueDouble)
     }
     
-    // Botón ACEPTAR
+    // rateButton ACTION
     @IBAction func confirm(_ sender: Any) {
         let rate = Double(Int(rateSlider.value * 5)/10)
         if let episode = self.episode {
@@ -66,14 +68,14 @@ class RateViewController: UIViewController {
         }
     }
     
-    // BOTÓN CERRAR
+    // cancelButton ACTION
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - RATING
     
-    // Modificar RATE
+    // rateSlider ACTION
     func setRating(_ rating: Double) {
         let rate = Double(Int(rating * 5)/10)
         self.rateLabel.text = String(rate)
@@ -84,7 +86,7 @@ class RateViewController: UIViewController {
         self.setStarImage(self.star05, rating: rating, position: 8)
     }
     
-    // Modificar IMAGE STAR
+    // Edit Star Image
     func setStarImage(_ imageView: UIImageView, rating: Double, position: Double) {
         let positionDouble = Double(position * 2)
         if rating >= positionDouble + 1.0 &&
