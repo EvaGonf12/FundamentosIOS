@@ -1,15 +1,15 @@
 //
-//  EpisodeDetailsViewController.swift
+//  ActorDetailsViewController.swift
 //  AppOfThrones
 //
-//  Created by Eva Gonzalez Ferreira on 23/02/2020.
+//  Created by Eva Gonzalez Ferreira on 25/02/2020.
 //  Copyright © 2020 Eva Gonzalez Ferreira. All rights reserved.
 //
 
 import UIKit
 
-class EpisodeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class ActorDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
           return .lightContent
     }
@@ -18,12 +18,13 @@ class EpisodeDetailsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - DATA
-    private var episode: Episode?
+    private var actor: Cast?
+    
     
     // MARK: - INIT CONVENIENCE
-    convenience init(withEpisode episode: Episode) {
+    convenience init(withActor actor: Cast) {
         self.init()
-        self.episode = episode
+        self.actor = actor
     }
     
     // MARK: - LIFE CYCLE
@@ -31,23 +32,18 @@ class EpisodeDetailsViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         self.setupUI()
     }
-  
+
     // MARK: - SETUP
     func setupUI() {
         let nib1 = UINib.init(nibName: "ImageTableViewCell", bundle: nil)
         self.tableView.register(nib1, forCellReuseIdentifier: "ImageTableViewCell")
-        let nib2 = UINib.init(nibName: "EpisodeDetailsTableViewTitleCell", bundle: nil)
-        self.tableView.register(nib2, forCellReuseIdentifier: "EpisodeDetailsTableViewTitleCell")
-        let nib3 = UINib.init(nibName: "EpisodeDetailsTableViewSeasonCell", bundle: nil)
-        self.tableView.register(nib3, forCellReuseIdentifier: "EpisodeDetailsTableViewSeasonCell")
-        let nib4 = UINib.init(nibName: "EpisodeDetailsTableViewOverviewCell", bundle: nil)
-        self.tableView.register(nib4, forCellReuseIdentifier: "EpisodeDetailsTableViewOverviewCell")
+        let nib2 = UINib.init(nibName: "KeyValueTableViewCell", bundle: nil)
+        self.tableView.register(nib2, forCellReuseIdentifier: "KeyValueTableViewCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
-    
+
     // MARK: - UITableViewDelegate
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -76,49 +72,59 @@ class EpisodeDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
             case 0:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as? ImageTableViewCell {
-                    if let image = self.episode?.image {
+                    if let image = self.actor?.avatar {
                         cell.setImage(image)
                     }
                     return cell
                 }
                 fatalError("No se ha podido crear la celda Episode")
             case 1:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewTitleCell", for: indexPath) as? EpisodeDetailsTableViewTitleCell {
-                    if let name = self.episode?.name,
-                        let episodeNumber = self.episode?.episode,
-                        let date = self.episode?.date {
-                        cell.setCell(withName: name, withEpisodeNumber: episodeNumber, onDate: date)
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "KeyValueTableViewCell", for: indexPath) as? KeyValueTableViewCell {
+                    if let fullName = self.actor?.fullname,
+                        let role = self.actor?.role{
+                        cell.setData(withKey: fullName, withValue: "\"\(role)\"")
+                        cell.setFontText(19)
                     }
                     return cell
                 }
                 fatalError("No se ha podido crear la celda Episode")
             case 2:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewSeasonCell", for: indexPath) as? EpisodeDetailsTableViewSeasonCell {
-                    if let season = self.episode?.season {
-                        cell.setSeasonNumber(season)
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "KeyValueTableViewCell", for: indexPath) as? KeyValueTableViewCell {
+                    if let episodes = self.actor?.episodes {
+                        cell.setData(withKey: "Episodes:", withValue: "\(episodes)")
+                        cell.setFontText(14)
                     }
                     return cell
                 }
                 fatalError("No se ha podido crear la celda Episode")
             case 3:
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewOverviewCell", for: indexPath) as? EpisodeDetailsTableViewOverviewCell {
-                    if let overview = self.episode?.overview {
-                        cell.setSeasonOverview(overview)
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "KeyValueTableViewCell", for: indexPath) as? KeyValueTableViewCell {
+                    if let birth = self.actor?.birth {
+                        cell.setData(withKey: "Birth:", withValue: birth)
+                        cell.setFontText(14)
                     }
                     return cell
                 }
                 fatalError("No se ha podido crear la celda Episode")
+            case 4:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "KeyValueTableViewCell", for: indexPath) as? KeyValueTableViewCell {
+                if let placeBirth = self.actor?.placeBirth {
+                    cell.setData(withKey: "Place Birth:", withValue: placeBirth)
+                    cell.setFontText(14)
+                }
+                return cell
+            }
+            fatalError("No se ha podido crear la celda Episode")
             default:
             fatalError("No se ha podido crear la celda Episode")
         }
         fatalError("No se ha podido crear la celda Episode")
     }
-    
 }

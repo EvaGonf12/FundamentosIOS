@@ -1,5 +1,5 @@
 //
-//  EpisodeDetailsTableViewImageCell.swift
+//  ImageTableViewCell.swift
 //  AppOfThrones
 //
 //  Created by Eva Gonzalez Ferreira on 25/02/2020.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class EpisodeDetailsTableViewImageCell: UITableViewCell {
+class ImageTableViewCell: UITableViewCell {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var episodeDetailsImage: UIImageView!
+    @IBOutlet weak var detailsImage: UIImageView!
     
     // MARK: - DATA
     private var imageName: String?
@@ -25,7 +25,7 @@ class EpisodeDetailsTableViewImageCell: UITableViewCell {
     func setImage(_ imageName : String) {
         self.imageName = imageName
         if let image = self.imageName {
-            self.episodeDetailsImage.image = UIImage.init(named: image)
+            self.detailsImage.image = UIImage.init(named: image)
         }
     }
     
