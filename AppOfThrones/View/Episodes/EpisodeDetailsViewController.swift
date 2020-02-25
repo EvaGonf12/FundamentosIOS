@@ -10,56 +10,56 @@ import UIKit
 
 class EpisodeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // OUTLETS
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
+    // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
     
-    // DATA
+    // MARK: - DATA
     private var episode: Episode?
     
-    // LIFE CYCLE
+    // MARK: - INIT CONVENIENCE
+    convenience init(withEpisode episode: Episode) {
+        self.init()
+        self.episode = episode
+    }
+    
+    // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupUI()
     }
   
     // MARK: - SETUP
     func setupUI() {
-        self.title = "Seasons"
-        //let nib = UINib.init(nibName: "EpisodeTableViewCell", bundle: nil)
-        //self.tableView.register(nib, forCellReuseIdentifier: "EpisodeTableViewCell")
+        let nib1 = UINib.init(nibName: "EpisodeDetailsTableViewImageCell", bundle: nil)
+        self.tableView.register(nib1, forCellReuseIdentifier: "EpisodeDetailsTableViewImageCell")
+        let nib2 = UINib.init(nibName: "EpisodeDetailsTableViewTitleCell", bundle: nil)
+        self.tableView.register(nib2, forCellReuseIdentifier: "EpisodeDetailsTableViewTitleCell")
+        let nib3 = UINib.init(nibName: "EpisodeDetailsTableViewSeasonCell", bundle: nil)
+        self.tableView.register(nib3, forCellReuseIdentifier: "EpisodeDetailsTableViewSeasonCell")
+        let nib4 = UINib.init(nibName: "EpisodeDetailsTableViewOverviewCell", bundle: nil)
+        self.tableView.register(nib4, forCellReuseIdentifier: "EpisodeDetailsTableViewOverviewCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
     
-    func setupData(_ seasonNumber: Int) {
-        if  let pathURL = Bundle.main.url(forResource: "season_\(seasonNumber)", withExtension: "json") {
-            let data = try! Data.init(contentsOf: pathURL)
-            let decoder = JSONDecoder()
-            do {
-                episodes = try decoder.decode([Episode].self, from: data)
-                self.tableView.reloadData()
-                
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        } else {
-            fatalError("No se pudo obtener el path de la url")
-        }
-    }
-    
     // MARK: - UITableViewDelegate
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 123
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewTitleCell", for: indexPath) as? EpisodeDetailsTableViewTitleCell
+//        return 123
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rateViewController = RateViewController()
-        self.present(rateViewController, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return false
     }
     
     // MARK: - RateViewControllerDelegate
@@ -74,35 +74,49 @@ class EpisodeDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell {
-            let ep = episodes[indexPath.row]
-            cell.delegate = self
-            cell.setEpisode(ep)
-            cell.rateBlock = { () -> Void in
-                let rateViewController = RateViewController.init(withEpisode: ep)
-                rateViewController.delegate = self
-                let navigationController = UINavigationController.init(rootViewController: rateViewController)
-                self.present(navigationController, animated: true, completion: nil)
-            }
-            return cell
+        switch indexPath.row {
+            case 0:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewImageCell", for: indexPath) as? EpisodeDetailsTableViewImageCell {
+                    if let image = self.episode?.image {
+                        cell.setImage(image)
+                    }
+                    return cell
+                }
+                fatalError("No se ha podido crear la celda Episode")
+            case 1:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewTitleCell", for: indexPath) as? EpisodeDetailsTableViewTitleCell {
+                    if let name = self.episode?.name,
+                        let episodeNumber = self.episode?.episode,
+                        let date = self.episode?.date {
+                        cell.setCell(withName: name, withEpisodeNumber: episodeNumber, onDate: date)
+                    }
+                    return cell
+                }
+                fatalError("No se ha podido crear la celda Episode")
+            case 2:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewSeasonCell", for: indexPath) as? EpisodeDetailsTableViewSeasonCell {
+                    if let season = self.episode?.season {
+                        cell.setSeasonNumber(season)
+                    }
+                    return cell
+                }
+                fatalError("No se ha podido crear la celda Episode")
+            case 3:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailsTableViewOverviewCell", for: indexPath) as? EpisodeDetailsTableViewOverviewCell {
+                    if let overview = self.episode?.overview {
+                        cell.setSeasonOverview(overview)
+                    }
+                    return cell
+                }
+                fatalError("No se ha podido crear la celda Episode")
+            default:
+            fatalError("No se ha podido crear la celda Episode")
         }
         fatalError("No se ha podido crear la celda Episode")
-    }
-    
-    // MARK: - DELEGATE
-    @objc func didFavoriteChanged() {
-        self.tableView.reloadData()
-    }
-    
-    // MARK: - IBACTIONS
-    
-    @IBAction func seasonChanged(_ sender: UISegmentedControl) {
-        let seasonNumber = sender.selectedSegmentIndex + 1
-        self.setupData(seasonNumber)
     }
     
 }

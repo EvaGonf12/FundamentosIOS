@@ -20,6 +20,7 @@ class CastTableViewCell: UITableViewCell {
     var delegate: FavoriteDelegate?
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         // Forma parte del ciclo de vida de una lista
         // Se llama cuando se ha cogido la celda del XIB (NIB)
         self.avatar.layer.cornerRadius = 2.0

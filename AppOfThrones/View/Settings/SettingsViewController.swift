@@ -9,10 +9,15 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+    // Debido al bug que hay en Xcode
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet weak var cleanFavorites: UIButton!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

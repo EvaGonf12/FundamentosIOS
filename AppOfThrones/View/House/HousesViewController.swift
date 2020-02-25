@@ -9,7 +9,12 @@
 import UIKit
 
 class HousesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
+    // Debido al bug que hay en Xcode
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Model
     let houses: [House] = [
         House.init(imageName: "Arryn", name: "Casa Arryn", words: "Tan alto como el honor", seat: "Ni idea que es esto"),

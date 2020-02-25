@@ -16,6 +16,10 @@ protocol RateViewControllerDelegate {
 
 class RateViewController: UIViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
     // MARK: - OUTLETS
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rateLabel: UILabel!

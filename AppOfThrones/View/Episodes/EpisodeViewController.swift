@@ -10,6 +10,11 @@ import UIKit
 
 class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate, FavoriteDelegate {
 
+    // Debido al bug que hay en Xcode
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
     // MARK: - OUTLETS
     
     @IBOutlet weak var tableView: UITableView!
@@ -68,8 +73,9 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rateViewController = RateViewController()
-        self.present(rateViewController, animated: true, completion: nil)
+        let epDetailsViewController = EpisodeDetailsViewController(withEpisode: self.episodes[indexPath.row])
+        self.navigationController?.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(epDetailsViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

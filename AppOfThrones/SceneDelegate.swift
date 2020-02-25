@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -43,7 +42,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         UINavigationBar.appearance().overrideUserInterfaceStyle = .dark
         UINavigationBar.appearance().tintColor = UIColor.init(red: 235/255.0, green: 172/255.0, blue: 38/255.0, alpha: 1.0)
-        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = tabBarController
@@ -73,3 +71,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+// Debido al bug del tapbar
+extension UINavigationController {
+   open override var preferredStatusBarStyle: UIStatusBarStyle {
+      return topViewController?.preferredStatusBarStyle ?? .default
+   }
+}

@@ -10,7 +10,11 @@ import UIKit
 
 class CastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoriteDelegate {
     
-
+    // Debido al bug que hay en Xcode
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
