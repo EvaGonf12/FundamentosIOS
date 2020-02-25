@@ -30,6 +30,8 @@ class SettingsViewController: UIViewController {
     // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.cleanFavorites.layer.cornerRadius = 4
+        self.deleteEpisodesReviewsButton.layer.cornerRadius = 4
     }
 
     // MARK: - IBACTIONS
