@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EpisodeViewController" customModule="AppOfThrones" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="eae-Xp-Uab" id="R2D-8L-gro"/>
+                <outlet property="tableView" destination="eae-Xp-Uab" id="cCY-mq-CBs"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kmm-PA-pOL"/>
             </connections>
         </placeholder>

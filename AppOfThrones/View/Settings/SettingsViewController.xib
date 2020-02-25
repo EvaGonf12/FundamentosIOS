@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="AppOfThrones" customModuleProvider="target">
             <connections>
                 <outlet property="cleanFavorites" destination="jH5-qx-DWb" id="pCD-sP-ckP"/>
+                <outlet property="deleteEpisodesReviewsButton" destination="Xf7-6g-07K" id="4hD-2f-XBC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,9 +19,13 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH5-qx-DWb">
-                    <rect key="frame" x="20" y="428" width="374" height="41"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH5-qx-DWb" userLabel="Clear_Fav">
+                    <rect key="frame" x="20" y="785" width="374" height="57"/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="57" id="TAd-7j-TOC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="tintColor" red="0.99607843139999996" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Limpiar favoritos">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,13 +34,30 @@
                         <action selector="cleanFavoritesAction:" destination="-1" eventType="touchUpInside" id="L0Z-B4-9FA"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xf7-6g-07K" userLabel="Delete_Reviews">
+                    <rect key="frame" x="20" y="680" width="374" height="57"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="57" id="e0L-4p-EF0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="tintColor" red="0.99607843139999996" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Eliminar Reviews Episodios">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteEpisodesReviewsAction:" destination="-1" eventType="touchUpInside" id="LcY-ee-Y7E"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.47806078767123289" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
                 <constraint firstItem="jH5-qx-DWb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3zk-Dr-O3F"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jH5-qx-DWb" secondAttribute="trailing" constant="20" id="NkX-p2-Aqf"/>
-                <constraint firstItem="jH5-qx-DWb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="384" id="Qea-Hj-fFU"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jH5-qx-DWb" secondAttribute="bottom" constant="393" id="gJF-Kg-px9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jH5-qx-DWb" secondAttribute="bottom" constant="20" id="gJF-Kg-px9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Xf7-6g-07K" secondAttribute="trailing" constant="20" id="mwH-8d-utB"/>
+                <constraint firstItem="jH5-qx-DWb" firstAttribute="top" secondItem="Xf7-6g-07K" secondAttribute="bottom" constant="48" id="owe-OA-CST"/>
+                <constraint firstItem="Xf7-6g-07K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qEk-Qb-9wT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>

@@ -38,4 +38,5 @@ class KeyValueTableViewCell: UITableViewCell {
         self.keyLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
         self.valueLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
     }
+    
 }

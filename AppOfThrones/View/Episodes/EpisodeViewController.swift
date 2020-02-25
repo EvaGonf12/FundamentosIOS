@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate, FavoriteDelegate {
+class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate, FavoriteDelegate, ReviewsDelegate {
 
     // Debido al bug que hay en Xcode
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -16,7 +16,6 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: - OUTLETS
-    
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - DATA
@@ -83,11 +82,6 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
         return true
     }
     
-    // MARK: - RateViewControllerDelegate
-    func didRateChanged() {
-        self.tableView.reloadData()
-    }
-    
     // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -114,13 +108,22 @@ class EpisodeViewController : UIViewController, UITableViewDelegate, UITableView
         fatalError("No se ha podido crear la celda Episode")
     }
     
-    // MARK: - DELEGATE
+    // MARK: - RateViewControllerDelegate
+    func didRateChanged() {
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - FavoriteDelegate
     @objc func didFavoriteChanged() {
         self.tableView.reloadData()
     }
     
-    // MARK: - IBACTIONS
+    // MARK: - ReviewsDelegate
+    func didReviewsChanged() {
+        self.tableView.reloadData()
+    }
     
+    // MARK: - IBACTIONS
     @IBAction func seasonChanged(_ sender: UISegmentedControl) {
         let seasonNumber = sender.selectedSegmentIndex + 1
         self.setupData(seasonNumber)

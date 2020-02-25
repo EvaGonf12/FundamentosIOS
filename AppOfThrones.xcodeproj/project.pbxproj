@@ -18,12 +18,8 @@
 		58574DF623FC23E800C2F13C /* HousesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58574DF523FC23E800C2F13C /* HousesTableViewCell.xib */; };
 		588BDE8B24053EF9003608E2 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588BDE8A24053EF9003608E2 /* ImageTableViewCell.xib */; };
 		588BDE8D24053F0F003608E2 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BDE8C24053F0F003608E2 /* ImageTableViewCell.swift */; };
-		588BDE9024054885003608E2 /* EpisodeDetailsTableViewTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BDE8F24054885003608E2 /* EpisodeDetailsTableViewTitleCell.swift */; };
-		588BDE92240548A3003608E2 /* EpisodeDetailsTableViewTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588BDE91240548A3003608E2 /* EpisodeDetailsTableViewTitleCell.xib */; };
-		588BDE9624054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BDE9424054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.swift */; };
-		588BDE9724054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588BDE9524054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.xib */; };
-		588BDE9A2405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BDE982405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.swift */; };
-		588BDE9B2405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588BDE992405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.xib */; };
+		588BDE9624054C7B003608E2 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BDE9424054C7B003608E2 /* LabelTableViewCell.swift */; };
+		588BDE9724054C7B003608E2 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588BDE9524054C7B003608E2 /* LabelTableViewCell.xib */; };
 		588BDE9E24058542003608E2 /* ActorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BDE9C24058542003608E2 /* ActorDetailsViewController.swift */; };
 		588BDE9F24058542003608E2 /* ActorDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588BDE9D24058542003608E2 /* ActorDetailsViewController.xib */; };
 		588BDEA32405883D003608E2 /* KeyValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BDEA12405883D003608E2 /* KeyValueTableViewCell.swift */; };
@@ -85,12 +81,8 @@
 		58574DF523FC23E800C2F13C /* HousesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HousesTableViewCell.xib; sourceTree = "<group>"; };
 		588BDE8A24053EF9003608E2 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		588BDE8C24053F0F003608E2 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
-		588BDE8F24054885003608E2 /* EpisodeDetailsTableViewTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsTableViewTitleCell.swift; sourceTree = "<group>"; };
-		588BDE91240548A3003608E2 /* EpisodeDetailsTableViewTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailsTableViewTitleCell.xib; sourceTree = "<group>"; };
-		588BDE9424054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsTableViewSeasonCell.swift; sourceTree = "<group>"; };
-		588BDE9524054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailsTableViewSeasonCell.xib; sourceTree = "<group>"; };
-		588BDE982405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsTableViewOverviewCell.swift; sourceTree = "<group>"; };
-		588BDE992405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailsTableViewOverviewCell.xib; sourceTree = "<group>"; };
+		588BDE9424054C7B003608E2 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		588BDE9524054C7B003608E2 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
 		588BDE9C24058542003608E2 /* ActorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDetailsViewController.swift; sourceTree = "<group>"; };
 		588BDE9D24058542003608E2 /* ActorDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorDetailsViewController.xib; sourceTree = "<group>"; };
 		588BDEA12405883D003608E2 /* KeyValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,12 +183,8 @@
 			children = (
 				588BDE8C24053F0F003608E2 /* ImageTableViewCell.swift */,
 				588BDE8A24053EF9003608E2 /* ImageTableViewCell.xib */,
-				588BDE8F24054885003608E2 /* EpisodeDetailsTableViewTitleCell.swift */,
-				588BDE91240548A3003608E2 /* EpisodeDetailsTableViewTitleCell.xib */,
-				588BDE9424054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.swift */,
-				588BDE9524054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.xib */,
-				588BDE982405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.swift */,
-				588BDE992405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.xib */,
+				588BDE9424054C7B003608E2 /* LabelTableViewCell.swift */,
+				588BDE9524054C7B003608E2 /* LabelTableViewCell.xib */,
 				588BDEA12405883D003608E2 /* KeyValueTableViewCell.swift */,
 				588BDEA22405883D003608E2 /* KeyValueTableViewCell.xib */,
 			);
@@ -374,7 +362,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5805534723F35E90002AE312 /* RateViewController.xib in Resources */,
-				588BDE92240548A3003608E2 /* EpisodeDetailsTableViewTitleCell.xib in Resources */,
 				58DAB8AB23FF30D8006069CF /* season_4.json in Resources */,
 				58DAB8A623FF30D8006069CF /* season_6.json in Resources */,
 				58DB9AB423F602AB00B2C47A /* SettingsViewController.xib in Resources */,
@@ -383,7 +370,7 @@
 				58DAB8A223FF30D8006069CF /* season_5.json in Resources */,
 				589E9B0B23FB489D00952416 /* CastTableViewCell.xib in Resources */,
 				58DB9AB923F6083800B2C47A /* HousesViewController.xib in Resources */,
-				588BDE9724054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.xib in Resources */,
+				588BDE9724054C7B003608E2 /* LabelTableViewCell.xib in Resources */,
 				588BDE8B24053EF9003608E2 /* ImageTableViewCell.xib in Resources */,
 				588BDE9F24058542003608E2 /* ActorDetailsViewController.xib in Resources */,
 				58574DF623FC23E800C2F13C /* HousesTableViewCell.xib in Resources */,
@@ -391,7 +378,6 @@
 				58DAB8A523FF30D8006069CF /* season_3.json in Resources */,
 				58DB9AB023F6022300B2C47A /* CastViewController.xib in Resources */,
 				589E9B0723FB31E600952416 /* EpisodeTableViewCell.xib in Resources */,
-				588BDE9B2405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.xib in Resources */,
 				58DAB8A723FF30D8006069CF /* cast.json in Resources */,
 				58DAB8AA23FF30D8006069CF /* season_8.json in Resources */,
 				58DB9AA423F5F03800B2C47A /* EpisodeViewController.xib in Resources */,
@@ -428,13 +414,11 @@
 				58DB9AB323F602AB00B2C47A /* SettingsViewController.swift in Sources */,
 				58DAB8B02403250B006069CF /* EpisodeDetailsViewController.swift in Sources */,
 				58DB9AB823F6083800B2C47A /* HousesViewController.swift in Sources */,
-				588BDE9A2405527E003608E2 /* EpisodeDetailsTableViewOverviewCell.swift in Sources */,
 				58ACEC1923FC8289007A9327 /* Rating.swift in Sources */,
 				58DB9AA623F5F04B00B2C47A /* EpisodeViewController.swift in Sources */,
 				589E9B0923FB489200952416 /* CastTableViewCell.swift in Sources */,
 				58DB9AAA23F5F41300B2C47A /* Episode.swift in Sources */,
-				588BDE9624054C7B003608E2 /* EpisodeDetailsTableViewSeasonCell.swift in Sources */,
-				588BDE9024054885003608E2 /* EpisodeDetailsTableViewTitleCell.swift in Sources */,
+				588BDE9624054C7B003608E2 /* LabelTableViewCell.swift in Sources */,
 				589E9B0D23FB4B9C00952416 /* Cast.swift in Sources */,
 				5805532523F34BC6002AE312 /* SceneDelegate.swift in Sources */,
 				58DB9AAF23F6022300B2C47A /* CastViewController.swift in Sources */,

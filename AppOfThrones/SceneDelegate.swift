@@ -19,19 +19,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let episodeViewController  = EpisodeViewController()
         let castViewController     = CastViewController()
         let housesViewController   = HousesViewController()
-        let settingsViewCotnroller = SettingsViewController()
+        let settingsViewController = SettingsViewController()
+
+        // Comunicación de Settings con Episodes mediante Delegates
+        settingsViewController.episodesDelegate = episodeViewController
+
         
         episodeViewController.tabBarItem  = UITabBarItem.init(title: "Seasons", image: UIImage.init(systemName: "film.fill"), tag: 0)
         castViewController.tabBarItem     = UITabBarItem.init(title: "Cast", image: UIImage.init(systemName: "person.3.fill"), tag: 1)
         housesViewController.tabBarItem     = UITabBarItem.init(title: "Houses", image: UIImage.init(systemName: "shield.lefthalf.fill"), tag: 1)
-        settingsViewCotnroller.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 2)
+        settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 2)
         
         // NavigationController
         let navigationEpisodeViewController  = UINavigationController.init(rootViewController: episodeViewController)
         let navigationCastViewController     = UINavigationController.init(rootViewController: castViewController)
         let navigationHousesViewController   = UINavigationController.init(rootViewController: housesViewController)
-        let navigationSettingsViewController = UINavigationController.init(rootViewController: settingsViewCotnroller)
-
+        let navigationSettingsViewController = UINavigationController.init(rootViewController: settingsViewController)
+        
         // TabBarController
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [navigationEpisodeViewController, navigationCastViewController, navigationHousesViewController, navigationSettingsViewController]

@@ -8,6 +8,11 @@
 
 import UIKit
 
+// MARK: - PROTOCOLS
+protocol ReviewsDelegate {
+    func didReviewsChanged()
+}
+
 class SettingsViewController: UIViewController {
     
     // Debido al bug que hay en Xcode
@@ -15,19 +20,27 @@ class SettingsViewController: UIViewController {
         return .lightContent
     }
     
+    // MARK: - OUTLETS
     @IBOutlet weak var cleanFavorites: UIButton!
+    @IBOutlet weak var deleteEpisodesReviewsButton: UIButton!
     
+    // MARK: - DELEGATES
+    var episodesDelegate : ReviewsDelegate?
     
+    // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    // MARK: - IBACTIONS
     @IBAction func cleanFavoritesAction(_ sender: Any) {
-        // Como hay que advertir a varios elementos de eliminar favoritos -> NOTIFICACIONES (NOTIFICATION CENTER)
         DataController.shared.cleanFavorite()
-        
         let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
-        
         NotificationCenter.default.post(name: noteName, object: nil)
+    }
+    
+    @IBAction func deleteEpisodesReviewsAction(_ sender: Any) {
+        DataController.shared.deleteEpisodesReviews()
+        self.episodesDelegate?.didReviewsChanged()
     }
 }

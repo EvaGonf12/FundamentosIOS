@@ -16,16 +16,12 @@ protocol Identifiable {
     var id: Int {get}
 }
 
-
-// El controlador PURO -> encargado de la lógica
 class DataController {
     
     // MARK: - SHARED
-    // Todo lo que va después de static es una variable de clase a laque se puede llamar sin instanciar la clase
     static var shared = DataController()
     
     // MARK: - MODEL
-    // Debe ponerse PRIVATE porque ya que es un singleton así nos evitamos que se pueda tocar por todo el código
     private var ratings: [Rating] = []
     private var favorite : [Int] = [] {
         didSet {
@@ -53,11 +49,6 @@ class DataController {
     
     func addFavorite<T: Identifiable>(_ value : T) {
         favorite.append(value.id)
-        // No debería estar por hacer doble comprobación
-        // Se está comprobando al pulsar el botón de favorito y una vez comprobado se vuelve a comprobar al hacer la llamada de añadir
-//        if self.isFavorite(value) == false {
-//            favorite.append(value.id)
-//        }
     }
     
     // MARK: - RATING
@@ -85,6 +76,11 @@ class DataController {
             return rating.id == episode.id // Es un return que no hace falta poner
         }
         return filtered.first
+    }
+    
+    func deleteEpisodesReviews() {
+        self.ratings = []
+        
     }
     
 }
