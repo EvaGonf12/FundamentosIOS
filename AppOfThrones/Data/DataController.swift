@@ -23,6 +23,7 @@ class DataController {
     
     // MARK: - MODEL
     private var ratings: [Rating] = []
+    
     private var favorite : [Int] = [] {
         didSet {
             print("FAVORITE \(favorite)")
@@ -49,6 +50,33 @@ class DataController {
     
     func addFavorite<T: Identifiable>(_ value : T) {
         favorite.append(value.id)
+    }
+    
+    func getFavEpisodesList() -> [Episode] {
+        var favEpisodes : [Episode] = []
+        var episodes : [Episode] = []
+        
+        // Listado de episodes
+        for seasonNumber in 1...8 {
+            if  let pathURL = Bundle.main.url(forResource: "season_\(seasonNumber)", withExtension: "json") {
+                let data = try! Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                do {
+                    let episodesData = try decoder.decode([Episode].self, from: data)
+                    episodes.append(contentsOf: episodesData)
+                } catch {
+                    fatalError(error.localizedDescription)
+                }
+            } else {
+                fatalError("No se pudo obtener el path de la url")
+            }
+        }
+            
+        // Se crea la nueva lista
+        for episode in episodes {
+            if self.isFavorite(episode) {favEpisodes.append(episode)}
+        }
+        return favEpisodes
     }
     
     // MARK: - RATING

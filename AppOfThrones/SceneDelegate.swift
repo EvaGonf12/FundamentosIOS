@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let castViewController     = CastViewController()
         let housesViewController   = HousesViewController()
         let settingsViewController = SettingsViewController()
+        let favViewController      = FavoritesViewController()
 
         // Comunicación de Settings con Episodes mediante Delegates
         settingsViewController.episodesDelegate = episodeViewController
@@ -29,16 +30,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         castViewController.tabBarItem     = UITabBarItem.init(title: "Cast", image: UIImage.init(systemName: "person.3.fill"), tag: 1)
         housesViewController.tabBarItem     = UITabBarItem.init(title: "Houses", image: UIImage.init(systemName: "shield.lefthalf.fill"), tag: 1)
         settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 2)
+        favViewController.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage.init(systemName: "heart.fill"), tag: 3)
         
         // NavigationController
         let navigationEpisodeViewController  = UINavigationController.init(rootViewController: episodeViewController)
         let navigationCastViewController     = UINavigationController.init(rootViewController: castViewController)
         let navigationHousesViewController   = UINavigationController.init(rootViewController: housesViewController)
         let navigationSettingsViewController = UINavigationController.init(rootViewController: settingsViewController)
+        let navigationFavoriteViewController = UINavigationController.init(rootViewController: favViewController)
         
         // TabBarController
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [navigationEpisodeViewController, navigationCastViewController, navigationHousesViewController, navigationSettingsViewController]
+        tabBarController.viewControllers = [navigationEpisodeViewController, navigationCastViewController, navigationHousesViewController, navigationSettingsViewController, navigationFavoriteViewController]
         
         tabBarController.tabBar.barStyle = .black
         tabBarController.tabBar.isTranslucent = true

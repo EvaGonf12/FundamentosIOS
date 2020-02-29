@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("Entoy a punto de ejecutarme o mostrar la interfaz")
         
-        let str = "Name"        
         return true
     }
     
