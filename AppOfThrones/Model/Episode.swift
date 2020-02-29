@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Episode : Codable, Identifiable {
-    
+class Episode : Codable, Identifiable, Equatable, CustomStringConvertible {
+
     var id: Int
     var name: String?
     var date: String?
@@ -26,5 +26,30 @@ class Episode : Codable, Identifiable {
         self.episode = episode
         self.season = season
         self.overview = overview
+    }
+}
+
+extension Episode  {
+    var description: String {
+        let value = "EPISODE ITEM\n" +
+                    "Id: \(self.id)\n" +
+                    "Name: \(self.name ?? "nil")\n" +
+                    "Date: \(self.date ?? "nil")\n" +
+                    "Image: \(self.image ?? "nil")\n" +
+                    "Episode: \(self.episode)\n" +
+                    "Season: \(self.season)\n" +
+                    "Overview: \(self.overview)"
+        return value
+    }
+    
+    static func == (_ lhs: Episode, _ rhs: Episode) -> Bool {
+        return
+            lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.date == rhs.date &&
+            lhs.image == rhs.image &&
+            lhs.episode == rhs.episode &&
+            lhs.season == rhs.season &&
+            lhs.overview == rhs.overview
     }
 }
