@@ -32,24 +32,30 @@ class DataController {
     
     // MARK: - FAVORITE
     
-    func cleanFavorite() {
-        self.favorite = []
-    }
-    
     // T, M, U, V -> Represeta una clase que conforma protocolo TAL
     // Para varios parámetros: <T: Identifiable, M: OtroProtocolo, ... >
     func isFavorite<T: Identifiable>(_ value: T) -> Bool {
         return favorite.contains(value.id)
     }
     
+    func cleanFavorite() {
+        self.favorite = []
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.post(name: noteName, object: nil)
+    }
+    
     func removeFavorite<T: Identifiable>(_ value: T) {
         if let index = favorite.firstIndex(of: value.id) {
             favorite.remove(at: index)
+            let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+            NotificationCenter.default.post(name: noteName, object: nil)
         }
     }
     
     func addFavorite<T: Identifiable>(_ value : T) {
         favorite.append(value.id)
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.post(name: noteName, object: nil)
     }
     
     func getFavEpisodesList() -> [Episode] {

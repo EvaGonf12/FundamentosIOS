@@ -9,10 +9,9 @@
 import UIKit
 
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    // Debido al bug que hay en Xcode
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
-          return .lightContent
+             return .lightContent
     }
     
     // MARK: - OUTLETS
@@ -89,8 +88,9 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         fatalError("No se ha podido crear la celda Episode")
     }
     
-    // MARK: - FavoriteDelegate
+    // MARK: - FAVORITE LIST CHANGED
     @objc func didFavoriteChanged() {
+        self.setupData()
         self.tableView.reloadData()
     }
 

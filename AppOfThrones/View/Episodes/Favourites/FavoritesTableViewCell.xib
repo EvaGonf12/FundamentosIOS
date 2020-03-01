@@ -15,13 +15,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3SB4PUzZAnY6HnZbVbktIZoopGs" translatesAutoresizingMaskIntoConstraints="NO" id="bWc-f1-kON">
-                        <rect key="frame" x="20" y="11" width="101" height="105"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="105" id="VBG-gI-Yar"/>
-                            <constraint firstAttribute="width" constant="101" id="vbV-8j-Obp"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZR-al-sjA">
                         <rect key="frame" x="195.5" y="11" width="8" height="20.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -47,13 +40,20 @@
                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3SB4PUzZAnY6HnZbVbktIZoopGs" translatesAutoresizingMaskIntoConstraints="NO" id="bWc-f1-kON">
+                        <rect key="frame" x="20" y="13" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="VBG-gI-Yar"/>
+                            <constraint firstAttribute="width" constant="100" id="vbV-8j-Obp"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="bWc-f1-kON" firstAttribute="leading" secondItem="JVi-OE-Fsj" secondAttribute="leading" constant="20" id="2lw-WK-4Qr"/>
-                    <constraint firstItem="1Ah-dF-swv" firstAttribute="leading" secondItem="bWc-f1-kON" secondAttribute="trailing" constant="20" id="Gk2-kw-DLw"/>
+                    <constraint firstItem="1Ah-dF-swv" firstAttribute="leading" secondItem="bWc-f1-kON" secondAttribute="trailing" constant="21" id="Gk2-kw-DLw"/>
                     <constraint firstItem="6ZR-al-sjA" firstAttribute="leading" secondItem="l2K-Yf-AEp" secondAttribute="trailing" constant="8" id="Kpv-Hq-fIL"/>
-                    <constraint firstItem="l2K-Yf-AEp" firstAttribute="leading" secondItem="bWc-f1-kON" secondAttribute="trailing" constant="20" id="Lwx-L8-6x7"/>
+                    <constraint firstItem="l2K-Yf-AEp" firstAttribute="leading" secondItem="bWc-f1-kON" secondAttribute="trailing" constant="21" id="Lwx-L8-6x7"/>
                     <constraint firstItem="1Ah-dF-swv" firstAttribute="top" secondItem="6ZR-al-sjA" secondAttribute="bottom" constant="8" id="Qyh-Zt-G0h"/>
                     <constraint firstItem="1Ah-dF-swv" firstAttribute="trailing" secondItem="JVi-OE-Fsj" secondAttribute="trailingMargin" id="dPx-k4-2eO"/>
                     <constraint firstItem="6ZR-al-sjA" firstAttribute="top" secondItem="JVi-OE-Fsj" secondAttribute="top" constant="11" id="dzl-ky-35I"/>
@@ -62,7 +62,7 @@
                     <constraint firstItem="TX9-Zn-XVU" firstAttribute="top" secondItem="JVi-OE-Fsj" secondAttribute="top" constant="11" id="rkL-Xd-w8s"/>
                     <constraint firstItem="1Ah-dF-swv" firstAttribute="top" secondItem="l2K-Yf-AEp" secondAttribute="bottom" constant="8" id="urK-Rs-kWv"/>
                     <constraint firstItem="TX9-Zn-XVU" firstAttribute="leading" secondItem="6ZR-al-sjA" secondAttribute="trailing" constant="8" id="v0b-Zy-BpR"/>
-                    <constraint firstItem="bWc-f1-kON" firstAttribute="centerY" secondItem="JVi-OE-Fsj" secondAttribute="centerY" id="xC1-dz-7ia"/>
+                    <constraint firstItem="bWc-f1-kON" firstAttribute="centerY" secondItem="JVi-OE-Fsj" secondAttribute="centerY" constant="-0.5" id="xC1-dz-7ia"/>
                     <constraint firstAttribute="bottom" secondItem="1Ah-dF-swv" secondAttribute="bottom" constant="11" id="xYQ-tF-zic"/>
                 </constraints>
             </tableViewCellContentView>

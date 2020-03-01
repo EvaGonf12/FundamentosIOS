@@ -37,8 +37,6 @@ class SettingsViewController: UIViewController {
     // MARK: - IBACTIONS
     @IBAction func cleanFavoritesAction(_ sender: Any) {
         DataController.shared.cleanFavorite()
-        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
-        NotificationCenter.default.post(name: noteName, object: nil)
     }
     
     @IBAction func deleteEpisodesReviewsAction(_ sender: Any) {

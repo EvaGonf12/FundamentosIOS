@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HouseDetailsViewController" customModule="AppOfThrones" customModuleProvider="target">
+            <connections>
+                <outlet property="houseImage" destination="y9j-3V-2Ly" id="2ng-G5-MZc"/>
+                <outlet property="houseName" destination="2ud-v5-P7g" id="dtb-ij-bTA"/>
+                <outlet property="houseSeat" destination="4bf-t4-Tyc" id="27c-g4-gbM"/>
+                <outlet property="houseWords" destination="EsI-KI-lz7" id="XhA-nr-VXh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBV-G3-naS">
+                    <rect key="frame" x="20" y="440" width="335" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Words" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptz-Do-9gz">
+                    <rect key="frame" x="20" y="495.5" width="335" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunspear" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bf-t4-Tyc">
+                    <rect key="frame" x="20" y="465.5" width="335" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unbowed, Unbent, Unbroken" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsI-KI-lz7">
+                    <rect key="frame" x="20" y="521" width="335" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Martell" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-v5-P7g">
+                    <rect key="frame" x="20" y="381" width="335" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lannister" translatesAutoresizingMaskIntoConstraints="NO" id="y9j-3V-2Ly">
+                    <rect key="frame" x="0.0" y="20" width="375" height="341"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="341" id="enm-IZ-iho"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cBV-G3-naS" firstAttribute="top" secondItem="2ud-v5-P7g" secondAttribute="bottom" constant="30" id="8K0-iN-ROb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ptz-Do-9gz" secondAttribute="trailing" constant="20" id="Dkd-gM-lU8"/>
+                <constraint firstItem="4bf-t4-Tyc" firstAttribute="top" secondItem="cBV-G3-naS" secondAttribute="bottom" constant="5" id="FAe-lJ-WBm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4bf-t4-Tyc" secondAttribute="trailing" constant="20" id="Gex-qL-OGw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cBV-G3-naS" secondAttribute="trailing" constant="20" id="Ggy-ai-y2T"/>
+                <constraint firstItem="2ud-v5-P7g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Hj3-RN-Mza"/>
+                <constraint firstItem="Ptz-Do-9gz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="IAs-nD-xxZ"/>
+                <constraint firstItem="y9j-3V-2Ly" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KXq-J7-5zZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2ud-v5-P7g" secondAttribute="trailing" constant="20" id="KsC-ks-o7i"/>
+                <constraint firstItem="EsI-KI-lz7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dwn-CY-1O3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EsI-KI-lz7" secondAttribute="trailing" constant="20" id="ewi-x9-CxB"/>
+                <constraint firstItem="y9j-3V-2Ly" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="haw-y2-Hv1"/>
+                <constraint firstItem="2ud-v5-P7g" firstAttribute="top" secondItem="y9j-3V-2Ly" secondAttribute="bottom" constant="20" id="koz-mY-fbu"/>
+                <constraint firstItem="Ptz-Do-9gz" firstAttribute="top" secondItem="4bf-t4-Tyc" secondAttribute="bottom" constant="12" id="mo5-rd-W2C"/>
+                <constraint firstItem="cBV-G3-naS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rqG-NA-j9v"/>
+                <constraint firstItem="4bf-t4-Tyc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="xRc-Vm-Aon"/>
+                <constraint firstItem="EsI-KI-lz7" firstAttribute="top" secondItem="Ptz-Do-9gz" secondAttribute="bottom" constant="5" id="yHI-Pd-qkw"/>
+                <constraint firstItem="y9j-3V-2Ly" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="zqt-P0-0HQ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140" y="149.77511244377811"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Lannister" width="400" height="578"/>
+    </resources>
+</document>

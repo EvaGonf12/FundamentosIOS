@@ -8,7 +8,7 @@
 
 import Foundation
 
-class House: Equatable, CustomStringConvertible {
+class House: Equatable, CustomStringConvertible, Codable {
 
     var imageName : String?
     var name : String?
