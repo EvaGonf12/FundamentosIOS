@@ -36,11 +36,21 @@ class SettingsViewController: UIViewController {
 
     // MARK: - IBACTIONS
     @IBAction func cleanFavoritesAction(_ sender: Any) {
-        DataController.shared.cleanFavorite()
+        let alert = UIAlertController(title: "Delete Favorites", message: "Are you sure you want to remove all information from favorites?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { action in
+            DataController.shared.cleanFavorite()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func deleteEpisodesReviewsAction(_ sender: Any) {
-        DataController.shared.deleteEpisodesReviews()
-        self.episodesDelegate?.didReviewsChanged()
+        let alert = UIAlertController(title: "Delete Reviews", message: "Are you sure you want to delete all the reviews made?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { action in
+            DataController.shared.deleteEpisodesReviews()
+            self.episodesDelegate?.didReviewsChanged()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }

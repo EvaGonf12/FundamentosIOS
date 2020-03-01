@@ -23,12 +23,7 @@ class DataController {
     
     // MARK: - MODEL
     private var ratings: [Rating] = []
-    
-    private var favorite : [Int] = [] {
-        didSet {
-            print("FAVORITE \(favorite)")
-        }
-    }
+    private var favorite : [Int] = []
     
     // MARK: - FAVORITE
     

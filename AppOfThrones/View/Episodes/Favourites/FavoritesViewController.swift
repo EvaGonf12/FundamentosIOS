@@ -16,6 +16,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var contentInfo: UIView!
+    @IBOutlet weak var textContentInfo: UILabel!
     
     // MARK: - DATA
     private var favEpisodes: [Episode] = []
@@ -32,6 +34,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     func setupUI() {
         self.title = "Favorites"
         let nib = UINib.init(nibName: "FavoritesTableViewCell", bundle: nil)
+        self.textContentInfo.text = "No hay ningún episodio añadido a la lista de favoritos.\n¡Empieza a añadirlos!"
         self.tableView.register(nib, forCellReuseIdentifier: "FavoritesTableViewCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -50,6 +53,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func setupData() {
         self.favEpisodes = DataController.shared.getFavEpisodesList()
+        self.contentInfo.isHidden = self.favEpisodes.count != 0
+        self.tableView.isHidden = self.favEpisodes.count == 0
     }
     
     // MARK: - UITableViewDelegate

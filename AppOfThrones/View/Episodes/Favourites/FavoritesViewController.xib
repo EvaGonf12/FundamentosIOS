@@ -9,7 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesViewController">
             <connections>
+                <outlet property="contentInfo" destination="FvJ-su-X7D" id="Lom-4n-5Dl"/>
                 <outlet property="tableView" destination="MvK-3G-BKV" id="IT1-Pg-4xi"/>
+                <outlet property="textContentInfo" destination="5N4-yJ-iWc" id="oBr-sR-efx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,13 +24,34 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                 </tableView>
+                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvJ-su-X7D">
+                    <rect key="frame" x="20" y="64" width="374" height="61"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay ningún episodio añadido a la lista de favoritos.¡Empieza a añadirlos!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5N4-yJ-iWc">
+                            <rect key="frame" x="20" y="10" width="334" height="41"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="5N4-yJ-iWc" firstAttribute="leading" secondItem="FvJ-su-X7D" secondAttribute="leading" constant="20" symbolic="YES" id="5XH-LD-epj"/>
+                        <constraint firstAttribute="trailing" secondItem="5N4-yJ-iWc" secondAttribute="trailing" constant="20" symbolic="YES" id="jUs-iU-JaH"/>
+                        <constraint firstItem="5N4-yJ-iWc" firstAttribute="centerY" secondItem="FvJ-su-X7D" secondAttribute="centerY" id="lMe-hT-PpS"/>
+                        <constraint firstAttribute="height" constant="61" id="xPL-LD-ftz"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
+                <constraint firstItem="FvJ-su-X7D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="5d8-9f-efb"/>
                 <constraint firstItem="MvK-3G-BKV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="90y-rr-Sjv"/>
                 <constraint firstItem="MvK-3G-BKV" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="YJr-rh-jWh"/>
                 <constraint firstItem="MvK-3G-BKV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZSW-SZ-nb2"/>
                 <constraint firstItem="MvK-3G-BKV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bG0-cV-zyX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FvJ-su-X7D" secondAttribute="trailing" constant="20" id="o2M-2j-XmU"/>
+                <constraint firstItem="FvJ-su-X7D" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="ucf-gY-NL1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>

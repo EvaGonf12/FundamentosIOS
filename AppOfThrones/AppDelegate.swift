@@ -14,14 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - ESTADOS
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        print("Entoy a punto de ejecutarme o mostrar la interfaz")
-        
         return true
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("Entro en BG")
     }
 
     // MARK: UISceneSession CICLO DE VIDA
