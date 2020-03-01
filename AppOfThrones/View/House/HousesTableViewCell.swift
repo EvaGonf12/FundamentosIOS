@@ -10,23 +10,22 @@ import UIKit
 
 class HousesTableViewCell: UITableViewCell {
     
-    // MARK: - Outlets
-    
+    // MARK: - OUTLETS
     @IBOutlet weak var houseImage: UIImageView!
     @IBOutlet weak var houseName: UILabel!
     @IBOutlet weak var houseWords: UILabel!
     @IBOutlet weak var houseSeat: UILabel!
     
+    //MARK: - LIFE CYCLE
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Forma parte del ciclo de vida de una lista
-        // Se llama cuando se ha cogido la celda del XIB (NIB)
         self.houseImage.layer.cornerRadius = 2.0
         self.houseImage.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         self.houseImage.layer.borderWidth = 1.0
         
     }
     
+    // MARK: - SETUP
     func setHouse(_ house: House) {
         self.houseName.text = house.name
         self.houseWords.text = house.words

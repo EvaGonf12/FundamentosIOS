@@ -57,7 +57,6 @@ class DataController {
         var favEpisodes : [Episode] = []
         var episodes : [Episode] = []
         
-        // Listado de episodes
         for seasonNumber in 1...8 {
             if  let pathURL = Bundle.main.url(forResource: "season_\(seasonNumber)", withExtension: "json") {
                 let data = try! Data.init(contentsOf: pathURL)
@@ -82,7 +81,6 @@ class DataController {
     
     // MARK: - RATING
     
-    // Esto puntúa a un episodio
     func rateEpisode(_ episode: Episode, value: Double) {
         if self.ratingForEpisode(episode) == nil {
             let rateValue = Rating.init(id: episode.id, rate: Rate.rated(value: value))
@@ -90,7 +88,6 @@ class DataController {
         }
     }
     
-    // Borra la puntuación de un episodio
     func removeRateEpisode(_ episode: Episode) {
         if let index = self.ratings.firstIndex(where: { (rating) -> Bool in
             return episode.id == rating.id
@@ -99,17 +96,15 @@ class DataController {
         }
     }
     
-    // Devuelve el estado de Rating del Episodio
     func ratingForEpisode(_ episode: Episode) -> Rating? {
         let filtered = ratings.filter { (rating) -> Bool in
-            return rating.id == episode.id // Es un return que no hace falta poner
+            return rating.id == episode.id
         }
         return filtered.first
     }
     
     func deleteEpisodesReviews() {
         self.ratings = []
-        
     }
     
 }

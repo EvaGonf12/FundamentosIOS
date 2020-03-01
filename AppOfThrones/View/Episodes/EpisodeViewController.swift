@@ -10,7 +10,6 @@ import UIKit
 
 class EpisodeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewControllerDelegate, FavoriteDelegate, ReviewsDelegate {
 
-    // Debido al bug que hay en Xcode
     override var preferredStatusBarStyle: UIStatusBarStyle {
           return .lightContent
     }

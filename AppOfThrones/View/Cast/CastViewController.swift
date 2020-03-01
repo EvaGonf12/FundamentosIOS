@@ -15,13 +15,13 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
         return .lightContent
     }
     
-    // MARK: - Outlets
+    // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - MODEL
     var cast: [Cast] = []
     
-    // MARK: - CICLO DE VIDA
+    // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()

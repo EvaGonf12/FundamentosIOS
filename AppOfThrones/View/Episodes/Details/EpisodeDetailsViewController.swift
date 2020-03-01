@@ -65,10 +65,10 @@ class EpisodeDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: - UITableViewDataSource
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        return UITableView.automaticDimension
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        return UITableView.automaticDimension
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

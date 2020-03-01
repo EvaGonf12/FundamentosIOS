@@ -89,7 +89,7 @@ class EpisodeTableViewCell : UITableViewCell {
     
     // MARK: - RATING
     
-    // Put cell in mode RATE
+    // Cell on mode RATE
     func modeRate() {
         self.rate.isHidden = false
         self.star01.isHidden = true
@@ -99,7 +99,7 @@ class EpisodeTableViewCell : UITableViewCell {
         self.star05.isHidden = true
     }
     
-    // Put cell in mode STAR
+    // Cell on mode STAR
     func modeStar() {
         self.rate.isHidden = true
         self.star01.isHidden = false

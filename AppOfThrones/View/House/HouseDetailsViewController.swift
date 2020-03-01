@@ -11,7 +11,6 @@ import UIKit
 class HouseDetailsViewController: UIViewController {
 
     // MARK: - OUTLETS
-    
     @IBOutlet weak var houseImage: UIImageView!
     @IBOutlet weak var houseName: UILabel!
     @IBOutlet weak var houseSeat: UILabel!

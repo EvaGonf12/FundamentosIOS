@@ -10,21 +10,26 @@ import UIKit
 
 class CastTableViewCell: UITableViewCell {
     
+    // MARK: - OUTLETS
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var heart: UIButton!
     @IBOutlet weak var episodes: UILabel!
     @IBOutlet weak var role: UILabel!
     @IBOutlet weak var name: UILabel!
     
+    // MARK: - DATA
     private var cast: Cast?
     var delegate: FavoriteDelegate?
     
+    // MARK: - LIFE CYCLE
     override func awakeFromNib() {
         super.awakeFromNib()
         self.avatar.layer.cornerRadius = 2.0
         self.avatar.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         self.avatar.layer.borderWidth = 1.0
     }
+    
+    // MARK: - SETUP
     
     func setCast(_ cast: Cast) {
         self.cast = cast

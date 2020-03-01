@@ -19,7 +19,7 @@ class FavoritesTableViewCell: UITableViewCell {
     // MARK: - DATA
     private var episode: Episode?
     
-    // MARK: - CICLO DE VIDA
+    // MARK: - LIFE CYCLE
     override func awakeFromNib() {
         super.awakeFromNib()
         self.favImage.layer.cornerRadius = 2.0

@@ -20,7 +20,6 @@ class ActorDetailsViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - DATA
     private var actor: Cast?
     
-    
     // MARK: - INIT CONVENIENCE
     convenience init(withActor actor: Cast) {
         self.init()

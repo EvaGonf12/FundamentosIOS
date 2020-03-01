@@ -22,7 +22,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - DATA
     private var favEpisodes: [Episode] = []
     
-    // MARK: - CICLO DE VIDA
+    // MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
