@@ -113,10 +113,10 @@ class EpisodeTableViewCell : UITableViewCell {
     func setRating(_ rating: Double) {
         self.modeStar()
         self.setStarImage(self.star01, rating: rating, position: 0)
-        self.setStarImage(self.star02, rating: rating, position: 2)
-        self.setStarImage(self.star03, rating: rating, position: 4)
-        self.setStarImage(self.star04, rating: rating, position: 6)
-        self.setStarImage(self.star05, rating: rating, position: 8)
+        self.setStarImage(self.star02, rating: rating, position: 1)
+        self.setStarImage(self.star03, rating: rating, position: 2)
+        self.setStarImage(self.star04, rating: rating, position: 3)
+        self.setStarImage(self.star05, rating: rating, position: 4)
     }
     
     // Set Star image
